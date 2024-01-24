@@ -40,3 +40,5 @@ N'hésitez pas à me contacter pour discuter de collaborations potentielles, de 
 Merci de votre visite !
 
 **Télécharger mon CV:** [CV_Mohammed_cmp.pdf](./public/assets/mon_cv.pdf)
+
+Visitez mon portfolio en ligne: [portfolio-mohammed.netlify.app](https://portfolio-mohammed.netlify.app/)

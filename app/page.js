@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image';
 export default function Home() {
   return (
     <>
@@ -8,7 +8,12 @@ export default function Home() {
 
 <header className="h-105 flex flex-col md:flex-row justify-between items-center bg-black border-b border-gray px-40 py-5">
   <div className="flex items-center">
-    <img src="images/my_logo.png" alt="mon-logo" className='w-35 h-10'/>
+  <Image
+  src="/images/my_logo.png"
+  alt="mon-logo"
+  width={35}
+  height={10}
+/>
   </div>
 
   <nav className="nav mt-4 sm:mt-0">
@@ -39,7 +44,13 @@ export default function Home() {
         </div>
 
         <div className="flex items-center py-5">
-            <img src="images/ma-photo.jpg" alt="ma-photo-profil" className="max-h-40 max-w-40 sm:h-300 sm:w-300"/>
+        <Image
+    src="/images/ma-photo.jpg"
+    alt="ma-photo-profil"
+    width={300}
+    height={300}
+    className="max-h-40 max-w-40 sm:h-300 sm:w-300"
+  />
         </div>
 
       </div>
