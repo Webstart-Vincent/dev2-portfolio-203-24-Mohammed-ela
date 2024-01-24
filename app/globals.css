@@ -10,11 +10,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 256, 256, 265; /* Couleur cyan */
+    --background-start-rgb: 0, 0,0; /* Noir */
+    --background-end-rgb: 30, 27, 75; /* Couleur indigo sombre */
   }
 }
+
 
 body {
   color: rgb(var(--foreground-rgb));
