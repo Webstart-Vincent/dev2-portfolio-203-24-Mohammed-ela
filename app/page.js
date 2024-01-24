@@ -24,7 +24,7 @@ export default function Home() {
 </header>
 
 
-      <div className='bg-indigo-300 flex flex-col px-5 py-10 sm:px-40 sm:flex-row sm:py-10'>
+      <div className='bg-indigo-300 flex flex-col px-5 py-20 sm:px-40 sm:flex-row sm:py-15'>
         <div className="flex flex-col gap-10 sm:gap-20">
           <article className='flex flex-col gap-10 w-250'>
             <h1 className='text-xl text-center sm:text-5xl sm:text-left'>Developpeur Web</h1>
@@ -39,7 +39,7 @@ export default function Home() {
         </div>
 
         <div className="flex items-center py-5">
-            <img src="images/ma-photo.jpg" alt="ma-photo-profil" className="h-50 w-50 sm:h-auto sm:w-15"/>
+            <img src="images/ma-photo.jpg" alt="ma-photo-profil" className="max-h-40 max-w-40 sm:h-300 sm:w-300"/>
         </div>
 
       </div>
