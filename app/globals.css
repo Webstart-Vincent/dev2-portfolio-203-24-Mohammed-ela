@@ -10,9 +10,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 256, 256, 265; /* Couleur cyan */
-    --background-start-rgb: 0, 0,0; /* Noir */
-    --background-end-rgb: 30, 27, 75; /* Couleur indigo sombre */
+    --foreground-rgb: 256, 256, 265; 
+    --background-start-rgb: 0, 0,0; 
+    --background-end-rgb: 30, 27, 75; 
   }
 }
 

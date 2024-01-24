@@ -27,7 +27,6 @@ export default function Home() {
       <div className='bg-indigo-300 flex flex-col px-5 py-10 sm:px-40 sm:flex-row sm:py-10'>
         <div className="flex flex-col gap-10 sm:gap-20">
           <article className='flex flex-col gap-10 w-250'>
-            <p className='text-base'>Bonjour à tous ! Je suis</p>
             <h1 className='text-xl text-center sm:text-5xl sm:text-left'>Developpeur Web</h1>
                       
             <p className='text-sm md:text-xl'>Bonjour et bienvenue sur mon portfolio en ligne ! Je suis passionné par le développement Web, et ce site est le reflet de mon parcours et de mes réalisations.</p>

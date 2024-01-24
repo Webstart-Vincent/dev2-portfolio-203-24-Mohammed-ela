@@ -1,48 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Portfolio de Développeur Web
 
-## Getting Started
+Bienvenue sur mon portfolio en ligne ! Je suis passionné par le développement Web, et ce site est le reflet de mon parcours et de mes réalisations.
+Navigation
 
-First, run the development server:
+    Accueil
+    Parcours
+    Compétences
+    Projets
+    Contact
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Présentation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Je suis Developpeur Web, et je mets en œuvre mes compétences pour créer des solutions innovantes et efficaces. Mon portfolio en ligne est conçu pour vous donner un aperçu de qui je suis et de ce que j'ai accompli jusqu'à présent.
+À Propos de Moi
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Bonjour à tous ! Je suis passionné par le développement Web, et je suis constamment en quête de nouvelles connaissances pour rester à jour avec les dernières technologies. Ce site est une vitrine de mes compétences et de mes réalisations dans le domaine du développement Web.
+Parcours
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Mon parcours professionnel m'a permis d'acquérir une expertise dans divers domaines du développement Web, notamment la conception front-end et back-end. J'ai travaillé sur des projets variés qui m'ont permis d'affiner mes compétences et de relever de nouveaux défis.
+Compétences
 
-## Learn More
+    Langages de Programmation: JavaScript, HTML, CSS, etc.
+    Frameworks et Bibliothèques: React, Node.js, etc.
+    Base de Données: MongoDB, MySQL, etc.
+    Outils de Développement: Git, Visual Studio Code, etc.
 
-To learn more about Next.js, take a look at the following resources:
+Projets
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Explorez certains de mes projets récents pour avoir un aperçu de mon travail et de mes compétences en action.
+Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+N'hésitez pas à me contacter pour discuter de collaborations potentielles, de projets intéressants ou simplement pour échanger des idées. Contactez-moi.
 
-## Deploy on Vercel
+Merci de votre visite !
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-
-# env example
-
-- NEXTAUTH_URL = http://localhost:3000
-- NEXTAUTH_SECRET=
-- GOOGLE_CLIENT_ID=
-- GOOGLE_CLIENT_SECRET=
-- EMAIL_ADMIN=
-
-
-
+Télécharger mon CV: CV_Mohammed_cmp.pdf
