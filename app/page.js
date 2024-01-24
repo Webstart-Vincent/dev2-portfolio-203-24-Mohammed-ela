@@ -1,56 +1,47 @@
+import React from 'react';
 
-  export default function Home() {
-    return (
-      <div className="bg-gray-800 p-4">
-      <div className="flex items-center justify-between">
-        <div className="text-white">Logo</div>
+export default function Home() {
+  return (
+    <>
 
-        {/* Burger menu for mobile */}
-        <div className="lg:hidden">
-          <button
-            className="text-white focus:outline-none"
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
-            </svg>
-          </button>
+
+
+<header className="h-105 flex flex-col md:flex-row justify-between items-center bg-black border-b border-gray px-20 py-5">
+  <div className="flex items-center">
+    <img src="images/my_logo.png" alt="mon-logo" className='w-35 h-10'/>
+  </div>
+
+  <nav className="nav mt-4 sm:mt-0">
+    <ul className="flex flex-col sm:flex-row gap-3">
+      <li className='flex items-center'><a href="#accueil" className="">Accueil</a></li>
+      {/* <li><a href="#apropos" className="">À propos</a></li> */}
+      <li><a className='flex items-center' href="#parcours">Parcours</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+      <body className=''>
+        <div className="px-20 pt-20 flex flex-col gap-20">
+          <article className='flex flex-col gap-10'>
+            <p className='text-base'>Bonjour à tous ! Je suis</p>
+            <h1 className='text-5xl'>Developpeur Web</h1>
+                      
+            <p className='text-xl text-gray md:text-lg'>Bonjour et bienvenue sur mon portfolio en ligne ! Je suis passionné par le développement Web, et ce site est le reflet de mon parcours et de mes réalisations.</p>
+            <p className='text-xl text-gray md:text-lg'>Merci de votre visite !</p>
+          </article>
+
+          <div>
+            <button className="bg-gray hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="window.open('./assets/CV_Mohammed_cmp.pdf', '_blank')"> Télécharger CV</button>
+          </div>
         </div>
+      </body>
 
-        {/* Navigation links */}
-        <div className="hidden lg:flex space-x-4">
-          <a href="#" className="text-white">Home</a>
-          <a href="#" className="text-white">Work</a>
-          <a href="#" className="text-white">About</a>
-          <a href="#" className="text-white">CV</a>
-        </div>
-      </div>
 
-      {/* Mobile menu */}
-      {/* {(
-        <div className="lg:hidden mt-4">
-          <a href="#" className="block text-white">Home</a>
-          <a href="#" className="block text-white">Work</a>
-          <a href="#" className="block text-white">About</a>
-          <a href="#" className="block text-white">CV</a>
-        </div>
-      )} */}
 
-      {/* Your content goes here */}
-      <div className="mt-8">
-        <h1 className="text-4xl text-white">Welcome to my website</h1>
-        <p className="text-white">Your content goes here...</p>
-      </div>
-    </div>
-    )
-  }
+      </>
+  );
+}

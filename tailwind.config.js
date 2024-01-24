@@ -20,6 +20,10 @@ module.exports = {
       'gray-dark': '#273444',
       'gray': '#8492a6',
       'gray-light': '#d3dce6',
+      'blue-gradient': 'linear-gradient(to right, #1fb6ff, #2473ff)',
+      'pink-gradient': 'linear-gradient(to right, #ff49db, #ff3d7e)',
+      'orange-gradient': 'linear-gradient(to right, #ff7849, #ff5216)',
+      'green-gradient': 'linear-gradient(to right, #13ce66, #0f8035)',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
