@@ -13,8 +13,11 @@ module.exports = {
       xl: '1440px',
     },
     colors: {
+      'indigo':'#4B0082',
+      'blackbg':'#090B11',
+      'grey':'#c9cfdd',
       'blue': '#1fb6ff',
-      'pink': '#ff49db',
+      'pink': '#7611A6',
       'orange': '#ff7849',
       'green': '#13ce66',
       'gray-dark': '#273444',
@@ -24,6 +27,11 @@ module.exports = {
       'pink-gradient': 'linear-gradient(to right, #ff49db, #ff3d7e)',
       'orange-gradient': 'linear-gradient(to right, #ff7849, #ff5216)',
       'green-gradient': 'linear-gradient(to right, #13ce66, #0f8035)',
+      'white': '#ffffff', // Blanc
+      'black': '#000000', // Noir
+      'purple': '#361F59', // Violet 
+      'yellow': '#f6e05e', // Jaune
+      'cyan': '#06b6d4', // Cyan
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
@@ -39,5 +47,7 @@ module.exports = {
       }
     }
   },
-  plugins: [],
+  plugins: [
+    // require('flowbite/plugin')
+  ],
 }

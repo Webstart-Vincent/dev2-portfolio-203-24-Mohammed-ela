@@ -5,14 +5,10 @@ import Portfolio from '@/components/portfolio.jsx'
 // import type { AppProps } from 'next/app';
 // import { ThemeProvider } from "next-themes";
 
-export default function Home() {
+export default function Work() {
   return (
     <>
-  <Header />
-      <main>
-        <About />
-        <Portfolio />
-      </main>
+        <h1>Hello World</h1>
     </>
   );
 }
