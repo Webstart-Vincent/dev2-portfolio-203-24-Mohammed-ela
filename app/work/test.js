@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import PortfolioItem from '@/components/projet.jsx';
 
-// Définissez votre tableau de projets en dehors des composants, si ce tableau est commun. Sinon, déplacez-le à l'intérieur du composant qui l'utilise.
 const projects = [
   {
     id: 'shoot-ca',
