@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import Header from '@/components/header.jsx';
 import About from '@/components/about.jsx';

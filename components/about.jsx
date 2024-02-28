@@ -42,9 +42,9 @@ const About = () => {
             </AnimatePresence>
           </h1>
           <div className="flex justify-between gap-4">
-                      <p className='text-gray hidden sm:text-justify sm:hidden  lg:py-20 lg:leading-relaxed lg:flex lg:flex-col lg:justify-center'>
+                      <p className='text-gray light:text-black hidden sm:text-justify sm:hidden  lg:py-20 lg:leading-relaxed lg:flex lg:flex-col lg:justify-center'>
               Découvrez une sélection de mes derniers projets, conçus avec passion et expertise pour des clients variés ou pour des projets personnels. Explorez mon portfolio et plongez dans l'univers de mes créations, où chaque projet raconte une histoire unique et témoigne de mon engagement envers l'excellence et l'innovation dans le domaine du développement web.
-              Découvrez une sélection de mes derniers projets, conçus avec passion et expertise pour des clients variés ou pour des projets personnels. Explorez mon portfolio et plongez dans l'univers de mes créations, où chaque projet raconte une histoire unique et témoigne de mon engagement envers l'excellence et l'innovation dans le domaine du développement web.
+              Découvrez une sélection de mes derniers projets, con  çus avec passion et expertise pour des clients variés ou pour des projets personnels. Explorez mon portfolio et plongez dans l'univers de mes créations, où chaque projet raconte une histoire unique et témoigne de mon engagement envers l'excellence et l'innovation dans le domaine du développement web.
             </p>
             
             <Image
