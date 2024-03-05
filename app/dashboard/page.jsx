@@ -1,16 +1,8 @@
 'use client'
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router'; // Importer useRouter
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
-  const router = useRouter(); // Utiliser le hook useRouter
-
-  // Rediriger vers la page d'accueil si l'utilisateur n'est pas connecté
-  if (status === 'unauthenticated') {
-    router.push('/'); // Remplacez '/' par le chemin de votre page d'accueil si différent
-    return null; // Renvoie null pour éviter d'afficher un contenu avant la redirection
-  }
 
   // Vérifier si la session est en cours de chargement
   if (status === 'loading') {
@@ -19,14 +11,22 @@ const Dashboard = () => {
 
   // Vérifier si la session est définie
   const username = session?.user?.name;
-
-  // Afficher le contenu du tableau de bord
-  return (
-    <>
-      <h1>Tableau de bord</h1>
-      <p>Utilisateur : {username !== undefined ? username : 'Pas d\'utilisateur'}</p>
-    </>
-  );
+  if (username) {
+    // Afficher le contenu du tableau de bord
+    return (
+      <>
+        <h1>Tableau de bord</h1>
+        <p>Utilisateur : {username !== undefined ? username : 'Pas d\'utilisateur'}</p>
+      </>
+    );
+  } else {
+    // Redirection côté client vers la page d'accueil
+    if (typeof window !== 'undefined') {
+      window.location.href = '/';
+    }
+    // En attendant la redirection, afficher un contenu ou une page de chargement
+    return <p>Redirection vers la page d'accueil...</p>;
+  }
 };
 
 export default Dashboard;

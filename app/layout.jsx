@@ -9,7 +9,7 @@ export const metadata = {
   description: 'Découvrez les réalisations et compétences de Mohammed, développeur web passionné en 2024.',
   author: 'Mohammed',
   keywords: 'portfolio, développeur web, Next.js, React',
-  image: '/images/portfolio-preview.jpg', // Chemin vers une image de prévisualisation pour les réseaux sociaux
+  image: '/images/portfolio-preview.jpg',
   url: 'https://www.mohammed-portfolio.com',
 }
 
