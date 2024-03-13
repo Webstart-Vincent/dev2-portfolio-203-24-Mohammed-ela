@@ -14,19 +14,21 @@ const Dashboard = () => {
     }, []);
 
     const fetchProjects = () => {
-        fetch('api/projects/page') // Assurez-vous que l'URL est correcte pour votre config
+        fetch('/api/projects/page') // Assurez-vous que l'URL est correcte pour votre configuration
             .then((res) => res.json())
             .then((data) => {
+                console.log(data); // Ceci vous permet de voir la structure des données renvoyées
                 if (data.success) {
                     setProjects(data.data);
                 }
-            });
+            })
+            .catch((error) => console.error("Erreur lors de la récupération des projets", error));
     };
 
     const handleAddProject = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('api/projects/page', { // URL à vérifier
+            const res = await fetch('/api/projects/page', { // URL à vérifier
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

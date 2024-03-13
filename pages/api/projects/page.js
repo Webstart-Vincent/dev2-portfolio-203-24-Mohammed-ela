@@ -1,5 +1,5 @@
 import dbConnect from '@/app/lib/mangoose.js'; 
-import Project from '@/app/models/Project.js';
+import works from '@/app/models/Project.js';
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   switch (method) {
     case 'GET':
       try {
-        const projects = await Project.find({});
+        const projects = await works.find({});
         res.status(200).json({ success: true, data: projects });
       } catch (error) {
         res.status(400).json({ success: false, error: error.message });
@@ -17,8 +17,8 @@ export default async function handler(req, res) {
       break;
     case 'POST':
       try {
-        const project = await Project.create(req.body);
-        res.status(201).json({ success: true, data: project });
+        const project = await works.create(req.body);
+        res.status(201).json({ success: true, data: works });
       } catch (error) {
         res.status(400).json({ success: false, error: error.message });
       }

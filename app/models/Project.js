@@ -1,12 +1,14 @@
 import mongoose from 'mongoose';
 
-const ProjectSchema = new mongoose.Schema({
-  titre: String,
-  slug: { type: String, unique: true },
+const workSchema = new mongoose.Schema({
+  titre: { type: String, required: true },
+  slug: { type: String, required: true },
   image: String,
   github: String,
   website: String,
   description: String,
-});
+}, { collection: 'works' }); 
 
-export default mongoose.models.Project || mongoose.model('Project', ProjectSchema);
+const works = mongoose.models.works || mongoose.model('works', workSchema);
+
+export default works;

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.ilj2daj.mongodb.net/?retryWrites=true&w=majority`;
+const MONGODB_URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.ilj2daj.mongodb.net/portfolio?retryWrites=true&w=majority&appName=Cluster0`;
 
 if (!MONGODB_URI) {
   throw new Error('Veuillez définir l\'URI MongoDB dans .env');
