@@ -34,9 +34,9 @@ const authOptions = {
     },
 
     async redirect({ url, baseUrl }) {
-
+      
       return baseUrl + '/dashboard'
-
+      
     },
 
     async session({ session }) {
