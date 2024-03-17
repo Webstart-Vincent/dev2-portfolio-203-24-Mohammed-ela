@@ -1,13 +1,14 @@
-"use client"
+// edit/[slug].jsx
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { useSession } from 'next-auth/react';
+import Link from 'next/link';
+import Spinner from '@/components/spinner.js';
 
-const EditProject = () => {
+const EditProjectPage = () => {
     const { data: session, status } = useSession();
     const [project, setProject] = useState({
-        titre: '',
+        titre: '', 
         description: '',
         image: '',
         github: '',
@@ -17,36 +18,36 @@ const EditProject = () => {
     const { slug } = router.query;
 
     useEffect(() => {
-        if (slug) {
-            // Remplacer '/api/projects/${slug}' par l'URL exacte de ton API
-            fetch(`/api/projects/${slug}`)
-                .then((res) => res.json())
-                .then((data) => {
-                    if (data.success && data.data) {
-                        // Assure-toi que cette partie correspond au format de réponse de ton API
-                        setProject(data.data);
+        if (router.isReady) {
+            const fetchProject = async () => {
+                try {
+                    const response = await fetch(`/api/projects/${slug}`);
+                    const data = await response.json();
+                    if (data.success) {
+                        setProject(data.data); // Assumer que data.data contient le projet
                     } else {
-                        router.push('/dashboard'); // Redirige si le projet n'est pas trouvé
+                        console.error("Projet non trouvé");
+                        router.push('/dashboard');
                     }
-                })
-                .catch((error) => {
+                } catch (error) {
                     console.error("Erreur lors de la récupération du projet", error);
-                    router.push('/dashboard'); // Gestion des erreurs
-                });
+                    router.push('/dashboard');
+                }
+            };
+            fetchProject();
         }
-    }, [slug, router]);
+    }, [router.isReady, slug]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setProject((prevProject) => ({
-            ...prevProject,
+        setProject({
+            ...project,
             [name]: value,
-        }));
+        });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Mettre à jour le projet via l'API
         try {
             const res = await fetch(`/api/projects/${slug}`, {
                 method: 'PUT',
@@ -55,9 +56,8 @@ const EditProject = () => {
                 },
                 body: JSON.stringify(project),
             });
-
             if (res.ok) {
-                router.push('/dashboard'); // Redirection vers le tableau de bord après mise à jour
+                router.push('/dashboard'); // Redirection après la mise à jour
             } else {
                 console.error("Erreur lors de la mise à jour du projet");
             }
@@ -67,32 +67,32 @@ const EditProject = () => {
     };
 
     if (status === 'loading') {
-        return <p>Chargement...</p>;
+        return <Spinner />;
+    }
+
+    if (!session) {
+        if (typeof window !== 'undefined') {
+            window.location.href = '/';
+        }
+        return <p>Redirection vers la page d'accueil...</p>;
     }
 
     return (
         <div className="container mx-auto px-4">
-            <h1 className="text-2xl font-bold text-center my-5">Modifier le projet</h1>
-            <form onSubmit={handleSubmit} className="max-w-xl mx-auto">
+            <h1 className="text-2xl font-bold text-center my-5">Modifier le projet: {project.titre}</h1>
+            <form onSubmit={handleSubmit} className="max-w-lg mx-auto my-10 bg-purple-200 p-6 rounded-lg shadow-lg">
+                {/* Ici, tu répètes le schéma pour chaque champ comme dans l'exemple précédent */}
+                {/* Exemple pour le champ titre */}
                 <div className="mb-4">
-                    <label htmlFor="titre" className="block text-sm font-medium text-gray-700">Titre</label>
-                    <input type="text" name="titre" id="titre" value={project.titre} onChange={handleChange} required className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm"/>
+                    <label htmlFor="titre" className="block text-purple-500 text-sm font-bold mb-2">Titre</label>
+                    <input type="text" id="titre" name="titre" value={project.titre} onChange={handleChange} required className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
                 </div>
-
-                <div className="mb-4">
-                    <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
-                    <textarea name="description" id="description" value={project.description} onChange={handleChange} rows="3" required className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm"></textarea>
-                </div>
-
-                {/* Répète ce schéma pour les autres champs comme 'image', 'github', 'website' */}
-
-                <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Mettre à jour</button>
-                <Link href="/dashboard">
-                    <a className="px-4 py-2 ml-4 bg-gray-500 text-white rounded hover:bg-gray-700">Annuler</a>
-                </Link>
+                {/* Ajouter les autres champs ici */}
+                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Mettre à jour</button>
+                <Link href="/dashboard"><a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 ml-4">Annuler</a></Link>
             </form>
         </div>
     );
 };
 
-export default EditProject;
+export default EditProjectPage;

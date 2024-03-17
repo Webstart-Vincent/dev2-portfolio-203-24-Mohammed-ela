@@ -117,7 +117,7 @@ if (!username) {
               className="mt-4 bg-indigo hover:bg-purple text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
           Supprimer
       </button>
-      <Link href="/dashboard/edit">
+      <Link href={`/dashboard/edit/${project.slug}`}>
             <div className="inline-block mt-4 px-6 py-2.5 bg-indigo hover:bg-purple text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
                 Modifier 
             </div>

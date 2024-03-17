@@ -7,7 +7,6 @@ import Link from 'next/link';
 
 const ProjectObject = () => {
     const { data: session, status } = useSession();
-    const [projects, setProjects] = useState([]);
     const [newProject, setNewProject] = useState({ 
     titre: '', 
     slug: '', 
@@ -61,7 +60,7 @@ const ProjectObject = () => {
 
     return (
         <>
-  <Link href="/dashboard" className="absolute top-[20%] top-[20%] left-[20%] underline" aria-label="liste des projets">&#8592; Retour</Link>
+  <Link href="/dashboard" className="absolute top-[20%] left-[20%] underline" aria-label="liste des projets">&#8592; Retour</Link>
 
 <form onSubmit={handleAddProject} className="max-w-lg mx-auto my-10 bg-purple2 p-6 rounded-lg shadow-lg">
   <div className="mb-4">
