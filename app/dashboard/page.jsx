@@ -33,32 +33,6 @@ const Dashboard = () => {
             })
             .catch((error) => console.error("Erreur lors de la récupération des projets", error));
     };
-// CREATE 
-    const handleAddProject = async (e) => {
-        e.preventDefault();
-        try {
-            const res = await fetch('/api/projects/page', { // URL à vérifier
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newProject),
-            });
-            const data = await res.json();
-            if (data.success) {
-                fetchProjects(); // Recharger les projets après l'ajout
-                setNewProject({ 
-                titre: '', 
-                slug: '', 
-                description: '',
-                image: '',
-                github: '',
-                website: '', }); // Réinitialiser le formulaire
-            }
-        } catch (error) {
-            console.error("Erreur lors de l'ajout du projet", error);
-        }
-    };
 // DELETE
     const handleDeleteProject = async (slug) => {
         try {
@@ -93,26 +67,39 @@ const Dashboard = () => {
 
     return (
         <>
-            <h1>Tableau de bord</h1>
-            <p>Utilisateur : {username}</p>
-            <div>
-            <Link href="/new">
-                <a className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out">
-                Click here to Add Project
-                </a>
+          <>
+    <nav className="bg-blackbg p-4 flex justify-between items-center">
+        <h1 className="text-white text-lg">Tableau de bord</h1>
+        <div className="flex items-center">
+            <span className="text-gray mr-4">Utilisateur : {username}</span>
+            <Link href="/logout">
+                <div className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">Déconnexion</div>
             </Link>
+        </div>
+    </nav>
+
+    <div className="text-center my-6">
+        <h2 className="text-3xl text-white font-semibold">Bienvenue dans le tableau de bord</h2>
+        <Link href="/dashboard/new">
+            <div className="inline-block mt-4 px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out">
+                Ajouter un projet
             </div>
-            <div>
-                <h2>Liste des projets</h2>
-                {projects.map((project) => (
-                    <div key={project._id}>
-                        <h3>{project.titre}</h3>
-                        <p>{project.description}</p>
-                        {/* Bouton de suppression */}
-                        <button onClick={() => handleDeleteProject(project.slug)}>Supprimer</button>
-                    </div>
-                ))}
+        </Link>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        {projects.map((project) => (
+            <div key={project._id} className="bg-blackbg p-4 rounded-lg shadow-md hover:shadow-lg transition duration-150 ease-in-out">
+                <h3 className="text-xl text-white font-bold">{project.titre}</h3>
+                <p className="text-gray-300">{project.description}</p>
+                <button onClick={() => handleDeleteProject(project.slug)} className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
+                    Supprimer
+                </button>
             </div>
+        ))}
+    </div>
+</>
+
         </>
     );
 };

@@ -3,6 +3,7 @@ import Spinner from '@/components/spinner.js';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 
 const ProjectObject = () => {
     const { data: session, status } = useSession();
@@ -62,7 +63,8 @@ const ProjectObject = () => {
     return (
         <>
 
-                <form onSubmit={handleAddProject} className="max-w-lg mx-auto my-10 bg-purple2 p-6 rounded-lg shadow-lg">
+<form onSubmit={handleAddProject} className="max-w-lg mx-auto my-10 bg-purple2 p-6 rounded-lg shadow-lg">
+<Link href="/dashboard" className="absolute top-[20%] right-[5%] underline" aria-label="liste des projets">&#8592; Retour</Link>
   <div className="mb-4">
     <label htmlFor="titre" className="block text-purple-500 text-sm font-bold mb-2">Titre</label>
     <input
