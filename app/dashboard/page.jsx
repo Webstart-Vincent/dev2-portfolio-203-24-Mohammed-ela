@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
+
 const Dashboard = () => {
     const { data: session, status } = useSession();
     const [projects, setProjects] = useState([]);
@@ -15,8 +16,10 @@ const Dashboard = () => {
     github: '',
     website: '',
 });
+
+
 const url_img = '/images/';
-// on charge les projets
+    // on charge les projets
     useEffect(() => {
         fetchProjects();
     }, []);
@@ -32,6 +35,7 @@ const url_img = '/images/';
             })
             .catch((error) => console.error("Erreur lors de la récupération des projets", error));
     };
+
 // DELETE
     const handleDeleteProject = async (slug) => {
         try {
@@ -48,21 +52,22 @@ const url_img = '/images/';
 
 
 
-    // Vérifier si la session est en cours de chargement
-    if (status === 'loading') {
-        return <Spinner />;
-      }
-      
+ // Vérifier si la session est en cours de chargement
+ if (status === 'loading') {
+    return <Spinner />;
+  }
+  
 
-    // Vérifier si la session est définie
-    const username = session?.user?.name;
-    if (!username) {
-        // Redirection côté client vers la page d'accueil
-        if (typeof window !== 'undefined') {
-            window.location.href = '/';
-        }
-        return <p>Redirection vers la page d'accueil...</p>;
+// Vérifier si la session est définie
+const username = session?.user?.name;
+if (!username) {
+    // Redirection côté client vers la page d'accueil
+    if (typeof window !== 'undefined') {
+        window.location.href = '/';
     }
+    return <p>Redirection vers la page d'accueil...</p>;
+}
+   
 
     return (
 
@@ -93,7 +98,7 @@ const url_img = '/images/';
 
 
  {/* Liste des projets  */}
- <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pl-10">
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-10">
   {projects.map((project) => (
     <div key={project._id} 
          className="bg-[#9370DB] p-4 rounded-lg shadow-md transition duration-150 ease-in-out hover:shadow-lg hover:border-2 hover:border-white"
@@ -112,10 +117,11 @@ const url_img = '/images/';
               className="mt-4 bg-indigo hover:bg-purple text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
           Supprimer
       </button>
-      <button onClick={() => handleModifierProject(project.slug)} 
-              className="mt-4 bg-indigo hover:bg-purple text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
-          Modifier
-      </button>
+      <Link href="/dashboard/edit">
+            <div className="inline-block mt-4 px-6 py-2.5 bg-indigo hover:bg-purple text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
+                Modifier 
+            </div>
+        </Link>
       </div>
     </div>
     
