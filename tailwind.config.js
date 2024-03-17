@@ -29,7 +29,8 @@ module.exports = {
       'green-gradient': 'linear-gradient(to right, #13ce66, #0f8035)',
       'white': '#ffffff', // Blanc
       'black': '#000000', // Noir
-      'purple': '#361F59', // Violet 
+      'purple': '#361F59', // Violet
+      'purple2': '#483D8B', // Violet lite 
       'yellow': '#f6e05e', // Jaune
       'cyan': '#06b6d4', // Cyan
     },

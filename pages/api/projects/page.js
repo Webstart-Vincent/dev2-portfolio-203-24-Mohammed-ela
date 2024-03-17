@@ -23,7 +23,7 @@ export default async function handler(req, res) {
         res.status(400).json({ success: false, error: error.message });
       }
       break;
-    // Ajouter ici les cas pour PUT et DELETE si nécessaire
+    
     default:
       res.setHeader('Allow', ['GET', 'POST']); // Mettre à jour avec les méthodes autorisées
       res.status(405).end(`Method ${method} Not Allowed`);
