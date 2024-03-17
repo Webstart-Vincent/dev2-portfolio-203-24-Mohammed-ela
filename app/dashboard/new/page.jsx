@@ -30,7 +30,6 @@ const ProjectObject = () => {
             });
             const data = await res.json();
             if (data.success) {
-                fetchProjects(); // Recharger les projets après l'ajout
                 setNewProject({ 
                 titre: '', 
                 slug: '', 
@@ -62,10 +61,13 @@ const ProjectObject = () => {
 
     return (
         <>
+  <Link href="/dashboard" className="absolute top-[20%] top-[20%] left-[20%] underline" aria-label="liste des projets">&#8592; Retour</Link>
 
 <form onSubmit={handleAddProject} className="max-w-lg mx-auto my-10 bg-purple2 p-6 rounded-lg shadow-lg">
-<Link href="/dashboard" className="absolute top-[20%] right-[5%] underline" aria-label="liste des projets">&#8592; Retour</Link>
   <div className="mb-4">
+  <h1 className="text-3xl font-bold text-center text-gray-800 ">
+  Ajouter un projet
+  </h1>
     <label htmlFor="titre" className="block text-purple-500 text-sm font-bold mb-2">Titre</label>
     <input
       type="text"
