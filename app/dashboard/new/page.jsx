@@ -35,7 +35,7 @@ const ProjectObject = () => {
                 description: '',
                 image: '',
                 github: '',
-                website: '', }); // Réinitialiser le formulaire
+                website: '', }); 
             }
             window.location.href = '/dashboard';
         } catch (error) {
@@ -60,18 +60,31 @@ const ProjectObject = () => {
 
     return (
         <>
+                         {/* menu nav */}
+    <nav className="bg-blackbg p-4 flex justify-between items-center">
+    
+    <Link href="/">
+                <div className="font-bold py-2 px-4">Portfolio</div>
+    </Link>
+
+        <div className="flex items-center">
+            <span className="text-gray mr-4">Utilisateur : {username}</span>
+            <Link href="/api/auth/signout">
+                <div className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">Déconnexion</div>
+            </Link>
+        </div>
+    </nav>
   <Link href="/dashboard" className="absolute top-[20%] left-[20%] underline" aria-label="liste des projets">&#8592; Retour</Link>
 
-<form onSubmit={handleAddProject} className="max-w-lg mx-auto my-10 bg-purple2 p-6 rounded-lg shadow-lg">
+<form onSubmit={handleAddProject} className="max-w-lg mx-auto my-10 bg-purple p-6 rounded-lg shadow-lg">
+<h1 className="text-3xl font-bold text-center text-gray-800 mb-4">Ajouter un projet</h1>
   <div className="mb-4">
-  <h1 className="text-3xl font-bold text-center text-gray-800 ">
-  Ajouter un projet
-  </h1>
+
     <label htmlFor="titre" className="block text-purple-500 text-sm font-bold mb-2">Titre</label>
     <input
       type="text"
       id="titre"
-      className="shadow appearance-none border rounded w-full py-2 px-3 text-white bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       placeholder="Titre"
       value={newProject.titre}
       onChange={(e) => setNewProject({ ...newProject, titre: e.target.value })}
@@ -83,7 +96,7 @@ const ProjectObject = () => {
     <input
       type="text"
       id="slug"
-      className="shadow appearance-none border rounded w-full py-2 px-3 text-white bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       placeholder="Slug"
       value={newProject.slug}
       onChange={(e) => setNewProject({ ...newProject, slug: e.target.value })}
@@ -94,7 +107,7 @@ const ProjectObject = () => {
     <label htmlFor="description" className="block text-purple-500 text-sm font-bold mb-2">Description</label>
     <textarea
       id="description"
-      className="shadow appearance-none border rounded w-full py-2 px-3 text-white bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       placeholder="Description"
       value={newProject.description}
       onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
@@ -106,7 +119,7 @@ const ProjectObject = () => {
     <input
       type="text"
       id="github"
-      className="shadow appearance-none border rounded w-full py-2 px-3 text-white bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       placeholder="Github"
       value={newProject.github}
       onChange={(e) => setNewProject({ ...newProject, github: e.target.value })}
@@ -118,7 +131,7 @@ const ProjectObject = () => {
     <input
       type="text"
       id="website"
-      className="shadow appearance-none border rounded w-full py-2 px-3 text-white bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       placeholder="Website"
       value={newProject.website}
       onChange={(e) => setNewProject({ ...newProject, website: e.target.value })}
@@ -129,13 +142,16 @@ const ProjectObject = () => {
     <input
       type="text"
       id="image"
-      className="shadow appearance-none border rounded w-full py-2 px-3 text-white bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       placeholder="Image"
       value={newProject.image}
       onChange={(e) => setNewProject({ ...newProject, image: e.target.value })}
     />
   </div>
-  <button type="submit" className="bg-indigo hover:bg-purple text-white font-bold py-2 px-4 rounded">Add Project</button>
+  <div className="flex justify-center">
+  
+  <button type="submit" className="bg-indigo hover:bg-purple text-white font-bold py-2 px-4 rounded flex ">Add Project</button>
+</div>
 </form>
 
         </>
