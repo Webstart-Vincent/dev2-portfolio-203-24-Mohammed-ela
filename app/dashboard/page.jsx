@@ -128,7 +128,7 @@ if (!username) {
         <a href={project.github} target="_blank" rel="noopener noreferrer">Dépot GitHub : {project.github}</a>
         <p className="text-sm text-white font-bold mb-2">Titre SEO : {project.titre_seo} </p>
         <p className="text-sm text-white font-bold mb-2">Description SEO : {project.description_seo} </p>
-        <p className="text-sm text-white font-bold mb-2">LIEN CLOUDINARY : {project.image} </p>
+        <p className="text-sm text-white font-bold mb-2">Public key img : {project.image} </p>
       </div>
 
       <div className="flex justify-between items-center p-4">

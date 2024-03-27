@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 
+
 const ProjectObject = () => {
     const { data: session, status } = useSession();
     const [newProject, setNewProject] = useState({ 
@@ -15,9 +16,9 @@ const ProjectObject = () => {
     github: '',
     website: '',
     description_seo: '',
-    titre_seo: '',
+    titre_seo: '', 
 });
-
+const [isImageUploaded, setIsImageUploaded] = useState(false);
 // CREATE 
     const handleAddProject = async (e) => {
         e.preventDefault();
@@ -62,7 +63,6 @@ const ProjectObject = () => {
         }
         return <p>Redirection vers la page d'accueil...</p>;
     }
-
     return (
         <>
                          {/* menu nav */}
@@ -168,23 +168,27 @@ const ProjectObject = () => {
   </div>
 
 
-  <div className="mb-4">
+<div className="mb-4">
   <label htmlFor="image" className="block text-purple-500 text-sm font-bold mb-2">Ajouter une Image</label>
-  {/* <div className="flex justify-center items-center"> */}
   <CldUploadButton 
     uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
-  onSuccess={(response) => setNewProject({ ...newProject, image: response.public_id })}
-  className="bg-red hover:bg-orange text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
->
-  Télécharger une image
-</CldUploadButton>
+    onSuccess={(response) => {
+      console.log('Réponse Cloudinary:', response);
+      const publicId = response.info.public_id;
+      console.log('Public ID:', publicId);
+      setNewProject(current => ({ ...current, image: publicId }));
+      setIsImageUploaded(true); // Image uploadée avec succès
+    }}
+    className="bg-red hover:bg-orange text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+  >
+    Télécharger une image
+  </CldUploadButton>
 </div>
-{/* 
-</div> */}
-  <div className="flex justify-center">
-  
-  <button type="submit" className="bg-indigo hover:bg-purple text-white font-bold py-2 px-4 rounded flex ">Add Project</button>
+
+<div className="flex justify-center">
+  <button type="submit" disabled={!isImageUploaded} className="bg-indigo hover:bg-purple text-white font-bold py-2 px-4 rounded flex ">Ajouter le projet</button>
 </div>
+
 
 </form>
 
