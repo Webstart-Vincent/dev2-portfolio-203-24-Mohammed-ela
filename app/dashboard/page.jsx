@@ -123,9 +123,12 @@ if (!username) {
         <h3 className="text-xl text-white font-bold mb-2">{project.titre}</h3>
         <p className="text-gray-300 mb-4">{project.description}</p>
 
-        <a href={project.website} target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-500 transition-colors duration-300">Lien du site : {project.website}</a>
+        <a href={project.website} target="_blank" rel="noopener noreferrer">Lien du site : {project.website}</a>
         <br />
-        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-500 transition-colors duration-300">Dépot GitHub : {project.github}</a>
+        <a href={project.github} target="_blank" rel="noopener noreferrer">Dépot GitHub : {project.github}</a>
+        <p className="text-sm text-white font-bold mb-2">Titre SEO : {project.titre_seo} </p>
+        <p className="text-sm text-white font-bold mb-2">Description SEO : {project.description_seo} </p>
+        <p className="text-sm text-white font-bold mb-2">LIEN CLOUDINARY : {project.image} </p>
       </div>
 
       <div className="flex justify-between items-center p-4">

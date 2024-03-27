@@ -142,19 +142,7 @@ const ProjectObject = () => {
       onChange={(e) => setNewProject({ ...newProject, website: e.target.value })}
     />
   </div>
-  <div className="mb-4">
-  <label htmlFor="image" className="block text-purple-500 text-sm font-bold mb-2">Ajouter une Image</label>
-  <div className="flex justify-center items-center">
-  <CldUploadButton 
-    uploadPreset="<Upload Preset>" 
-    onSuccess={(response) => setNewProject({ ...newProject, image: response.public_id })}
-    className="bg-red hover:bg-orange text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-  >
-   Telecharger une image
-  </CldUploadButton>
-</div>
 
-</div>
 
   <div className="mb-4">
     <label htmlFor="description_seo" className="block text-purple-500 text-sm font-bold mb-2">description_seo</label>
@@ -178,6 +166,21 @@ const ProjectObject = () => {
       onChange={(e) => setNewProject({ ...newProject, titre_seo: e.target.value })}
     />
   </div>
+
+
+  <div className="mb-4">
+  <label htmlFor="image" className="block text-purple-500 text-sm font-bold mb-2">Ajouter une Image</label>
+  {/* <div className="flex justify-center items-center"> */}
+  <CldUploadButton 
+    uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
+  onSuccess={(response) => setNewProject({ ...newProject, image: response.public_id })}
+  className="bg-red hover:bg-orange text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+>
+  Télécharger une image
+</CldUploadButton>
+</div>
+{/* 
+</div> */}
   <div className="flex justify-center">
   
   <button type="submit" className="bg-indigo hover:bg-purple text-white font-bold py-2 px-4 rounded flex ">Add Project</button>
