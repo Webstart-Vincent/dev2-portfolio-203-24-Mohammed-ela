@@ -1,28 +1,34 @@
 'use client'
 import React, { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { toggleTheme } from '@/components/themeToggle.jsx'; 
+import { CldImage } from 'next-cloudinary';
+import imageData from '@/public/data/images.json';
 
-
-
-
+// image.publicId
 
 
 
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const logo = imageData.images.find(image => image.name === "logo");
   return (
     <header className="h-full flex md:flex-row justify-between items-center py-5 px-10 gap-2">
       {/* Mon Logo */}
       <div className="flex items-center">
-        <Image
+        {/* <Image
           src="/images/IA.png"
           alt="mon-logo"
           width={90}
           height={90}
+        /> */}
+        <CldImage
+            width="90"
+            height="90"
+            src={logo.publicId}
+            sizes="100vw"
+            alt="mon-logo"
         />
       </div>
       

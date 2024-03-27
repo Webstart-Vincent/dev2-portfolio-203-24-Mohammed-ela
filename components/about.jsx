@@ -3,11 +3,14 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
+import imageData from '@/public/data/images.json';
 const titles = [
   "Je suis un développeur junior Full Stack",
   "Je suis passionné par le développement Web",
   "Vous retrouverez toute mes réalisations"
 ];
+const profil = imageData.images.find(image => image.name === "photo_profil");
 
 const About = () => {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
@@ -47,13 +50,22 @@ const About = () => {
               Découvrez une sélection de mes derniers projets, con  çus avec passion et expertise pour des clients variés ou pour des projets personnels. Explorez mon portfolio et plongez dans l'univers de mes créations, où chaque projet raconte une histoire unique et témoigne de mon engagement envers l'excellence et l'innovation dans le domaine du développement web.
             </p>
             
-            <Image
+            {/* <Image
             src="/images/ma_photo_IA.webp"
             alt="mon-logo"
             width={300}
             height={10}
             className="rounded-full py-10"
-            />
+            /> */}
+
+            <CldImage
+            width="300"
+            height="10"
+            src={profil.publicId}
+            sizes="100vw"
+            className="rounded-full py-10"
+            alt="ma photo de profil"
+        />
           </div>
 
       </div>

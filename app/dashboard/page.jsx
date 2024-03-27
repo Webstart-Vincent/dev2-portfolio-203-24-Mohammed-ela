@@ -3,7 +3,6 @@ import Spinner from '@/components/spinner.js';
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { CldImage } from 'next-cloudinary';
 const Dashboard = () => {
     const { data: session, status } = useSession();
@@ -18,7 +17,6 @@ const Dashboard = () => {
 });
 
 
-const url_img = '/images/';
     // on charge les projets
     useEffect(() => {
         fetchProjects();
