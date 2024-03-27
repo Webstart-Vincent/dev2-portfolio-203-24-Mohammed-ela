@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import { CldImage } from 'next-cloudinary';
 const Dashboard = () => {
     const { data: session, status } = useSession();
     const [projects, setProjects] = useState([]);
@@ -104,12 +104,19 @@ if (!username) {
   {projects.map((project) => (
     <div key={project._id} className="bg-purple-700 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl">
     <div className="relative w-full h-56">
-        <Image
+        {/* <Image
           src={url_img + project.image}
           alt={project.image}
           layout="fill"
           objectFit="cover"
           className="transition-transform duration-500 hover:scale-110"
+        /> */}
+        <CldImage
+            width="300"
+            height="300"
+            src={project.image}
+            sizes="100vw"
+            alt=""
         />
       </div>
       <div className="p-4">

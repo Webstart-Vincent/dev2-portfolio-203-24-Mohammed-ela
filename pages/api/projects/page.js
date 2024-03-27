@@ -23,7 +23,7 @@ export default async function handler(req, res) {
       break;
     case 'POST':
       try {
-        const project = await Project.create(body); // Utilise 'body' au lieu de 'req.body' directement
+        const project = await Project.create(body); 
         res.status(201).json({ success: true, data: project });
       } catch (error) {
         res.status(400).json({ success: false, error: error.message });

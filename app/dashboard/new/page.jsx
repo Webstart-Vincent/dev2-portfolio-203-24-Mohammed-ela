@@ -1,6 +1,6 @@
 "use client"
+import { CldUploadButton } from 'next-cloudinary';
 import Spinner from '@/components/spinner.js';
-import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -14,6 +14,8 @@ const ProjectObject = () => {
     image: '',
     github: '',
     website: '',
+    description_seo: '',
+    titre_seo: '',
 });
 
 // CREATE 
@@ -35,7 +37,10 @@ const ProjectObject = () => {
                 description: '',
                 image: '',
                 github: '',
-                website: '', }); 
+                website: '', 
+                description_seo: '',
+                titre_seo: '',
+              }); 
             }
             window.location.href = '/dashboard';
         } catch (error) {
@@ -53,7 +58,7 @@ const ProjectObject = () => {
     if (!username) {
         // Redirection côté client vers la page d'accueil
         if (typeof window !== 'undefined') {
-            window.location.href = '/';
+          window.location.href = '/';
         }
         return <p>Redirection vers la page d'accueil...</p>;
     }
@@ -138,20 +143,46 @@ const ProjectObject = () => {
     />
   </div>
   <div className="mb-4">
-    <label htmlFor="image" className="block text-purple-500 text-sm font-bold mb-2">Image</label>
+  <label htmlFor="image" className="block text-purple-500 text-sm font-bold mb-2">Ajouter une Image</label>
+  <div className="flex justify-center items-center">
+  <CldUploadButton 
+    uploadPreset="<Upload Preset>" 
+    onSuccess={(response) => setNewProject({ ...newProject, image: response.public_id })}
+    className="bg-red hover:bg-orange text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+  >
+   Telecharger une image
+  </CldUploadButton>
+</div>
+
+</div>
+
+  <div className="mb-4">
+    <label htmlFor="description_seo" className="block text-purple-500 text-sm font-bold mb-2">description_seo</label>
     <input
       type="text"
-      id="image"
+      id="description_seo"
       className="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      placeholder="Image"
-      value={newProject.image}
-      onChange={(e) => setNewProject({ ...newProject, image: e.target.value })}
+      placeholder="description_seo"
+      value={newProject.description_seo}
+      onChange={(e) => setNewProject({ ...newProject, description_seo: e.target.value })}
+    />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="titre_seo" className="block text-purple-500 text-sm font-bold mb-2">Titre_seo</label>
+    <input
+      type="text"
+      id="titre_seo"
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      placeholder="titre_seo"
+      value={newProject.titre_seo}
+      onChange={(e) => setNewProject({ ...newProject, titre_seo: e.target.value })}
     />
   </div>
   <div className="flex justify-center">
   
   <button type="submit" className="bg-indigo hover:bg-purple text-white font-bold py-2 px-4 rounded flex ">Add Project</button>
 </div>
+
 </form>
 
         </>

@@ -1,7 +1,9 @@
+"use client"
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/header.jsx';
 import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaCloudUploadAlt, FaSearch } from 'react-icons/fa';
+import { CldImage } from 'next-cloudinary';
 export default function CustomHeader() {
   return (
     <>
@@ -65,6 +67,14 @@ export default function CustomHeader() {
           </div>
         </div>
       </main>
+      <CldImage
+  width="300"
+  height="300"
+  src="sample"
+  sizes="100vw"
+  alt=""
+/>
+
       </>
   );
 }

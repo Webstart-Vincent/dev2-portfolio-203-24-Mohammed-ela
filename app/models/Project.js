@@ -7,6 +7,9 @@ const workSchema = new mongoose.Schema({
   github: String,
   website: String,
   description: String,
+  titre_seo: String,
+  description_seo: String,
+
 }, { collection: 'works' }); 
 
 const works = mongoose.models.works || mongoose.model('works', workSchema);
