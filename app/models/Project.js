@@ -13,6 +13,13 @@ const workSchema = new mongoose.Schema({
 
 }, { collection: 'works' }); 
 
-const work = mongoose.models.works || mongoose.model('works', workSchema);
+// const work = mongoose.models.works || mongoose.model('works', workSchema);
+let work;
+try {
+  work = mongoose.models.works || mongoose.model('works', workSchema);
+} catch (error) {
+  console.error("Error defining the work model:", error.message);
+}
+
 
 export default work;
