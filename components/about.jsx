@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import Image from 'next/image';
 import { CldImage } from 'next-cloudinary';
 import imageData from '@/public/data/images.json';
 const titles = [

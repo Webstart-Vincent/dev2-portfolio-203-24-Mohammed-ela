@@ -46,7 +46,7 @@ export default function Portfolio() {
         <div name='gallery' className='sm:pb-8'>
           <ul className='flex flex-col items-center justify-center gap-4 sm:flex-row'>
             {projects.map((project, index) => (
-              <Link key={project.id} href={`/work/${project.id}`} className='relative border border-white shadow-lg rounded-lg'>
+              <Link key={project.id} href={`/works/${project.id}`} className='relative border border-white shadow-lg rounded-lg'>
                 <span name='title-projet' className="absolute top-5 left-5 bg-blackbg p-2 rounded text-gray font-bold">{project.title}</span>
                 <Image
                   src={project.src}
