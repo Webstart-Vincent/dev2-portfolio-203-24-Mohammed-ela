@@ -21,7 +21,7 @@ export default function Portfolio({ works }) {
                                             src={work.image}
                                             alt={work.titre}
                                             width={500} 
-                                            height={500} 
+                                            height={350} 
                                             className="rounded-lg border-double hover:scale-105 transition-transform duration-500 ease-in-out"
                                         />
                                 </Link>
