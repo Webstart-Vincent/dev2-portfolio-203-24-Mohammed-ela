@@ -1,3 +1,4 @@
+//Project.js
 import mongoose from 'mongoose';
 
 const workSchema = new mongoose.Schema({
@@ -12,6 +13,6 @@ const workSchema = new mongoose.Schema({
 
 }, { collection: 'works' }); 
 
-const works = mongoose.models.works || mongoose.model('works', workSchema);
+const WorkModel = mongoose.models.works || mongoose.model('works', workSchema);
 
-export default works;
+export default WorkModel;
