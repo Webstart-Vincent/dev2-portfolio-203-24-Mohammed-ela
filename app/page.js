@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/header.jsx';
-import About from '@/components/About';
-import Portfolio from '@/components/Portfolio';
+import About from '@/components/about.jsx';
+import Portfolio from '@/components/portfolio.jsx';
 
 export default function Home() {
     const [works, setWorks] = useState([]);
