@@ -1,7 +1,9 @@
 import React from 'react';
+import Spinner from '@/components/spinner.js';
 import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
 export default function Portfolio({ works }) {
+    // les parametre sont passé
     return (
         <section id='projets' name='portfolio' className='h-full grid gap-14 px-10 sm:mb-15 sm:px-10'>
             <div className='header grid gap-4'>
@@ -28,7 +30,7 @@ export default function Portfolio({ works }) {
                             </li>
                         ))
                     ) : (
-                        <li>Aucun projet à afficher</li>
+                      <Spinner />
                     )}
                 </ul>
             </div>

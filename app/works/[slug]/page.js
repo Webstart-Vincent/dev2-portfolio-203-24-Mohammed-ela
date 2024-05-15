@@ -1,11 +1,17 @@
-
 import dbConnect from '@/app/lib/mangoose.js'; 
 import Project from '@/app/models/Project.js';
-// import {CldImage} from 'next-cloudinary';
+import Link from 'next/link';
+import Image from 'next/image';
+import Header from '@/components/header.jsx';
+import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaCloudUploadAlt, FaSearch } from 'react-icons/fa';
 
 await dbConnect();
-console.log('debut fonct generate:'); 
-// retourne la list des slug de ma bdd
+
+async function fetchWork(slug) {
+    return await Project.findOne({ slug });
+}
+
+// Fonction pour générer des chemins statiques
 export async function generateStaticParams() {
     const works = await Project.find({});
     return works.map((work) => ({
@@ -13,21 +19,60 @@ export async function generateStaticParams() {
     }));
 }
 
-console.log('debut page'); 
 const Page = async ({ params }) => {
     const { slug } = params;
-    const work = await Project.findOne({ slug });
-    console.log(work);
+    const work = await fetchWork(slug);
+    const imageUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${work.image}`;
+
     return (
         <>
-            <h1>{work.titre}</h1> 
-            <h1>{work.slug}</h1> 
-            <h1>{work.github}</h1> 
-            <h1>{work.website}</h1> 
-            <h1>{work.description}</h1> 
-            <h1>{work.titre_seo}</h1> 
-            <h1>{work.description_seo}</h1> 
-            {/* <CldImage src={work.image} /> */}
+            <Header />
+            <main className='px-5 sm:px-10 py-10 animate-fadeIn'>
+                <h1 className="text-3xl font-bold mb-8 animate-slideIn">{work.titre}</h1>
+                <div className="grid my-5 md:grid-cols-1 lg:grid-cols-2 gap-10 animate-slideIn">
+                    <Link href="/#projets" className="absolute top-[20%] right-[5%] underline" aria-label="liste des projets">&#8592; Retour</Link>
+                    <div className="relative group">
+                        <Image 
+                            alt={work.titre_seo}
+                            src={imageUrl}
+                            width={599} 
+                            height={431} 
+                            className="w-full h-auto border border-indigo rounded-lg transition-transform transform group-hover:scale-105 group-hover:shadow-xl duration-300"
+                        />
+                    </div>
+                    <div className='flex flex-col justify-between animate-slideIn'>
+                        <h2 className="pt-3 mb-3 text-2xl font-semibold sm:pt-5">Integration shoot ça</h2>
+                        <p className="sm:w-4/5 mb-5">{work.description}</p>
+                        <div className="mt-5">
+                            <h2 className='mb-2 text-xl font-semibold'>Technologies :</h2>
+                            <ul className="grid grid-cols-2 gap-4">
+                                <li className="text-sm md:text-base flex flex-row items-center"><FaHtml5 className="mr-2 text-orange"/>HTML5</li>
+                                <li className="text-sm md:text-base flex flex-row items-center"><FaCss3Alt className="mr-2 text-blue"/>Design UX UI sous Figma</li>
+                                <li className="text-sm md:text-base flex flex-row items-center"><FaReact className="mr-2 text-blue"/>React / NextJS (SSR)</li>
+                                <li className="text-sm md:text-base flex flex-row items-center"><FaJs className="mr-2 text-yellow"/>Typescript</li>
+                                <li className="text-sm md:text-base flex flex-row items-center"><FaCloudUploadAlt className="mr-2 text-green"/>Déploiement sous Netlify</li>
+                                <li className="text-sm md:text-base flex flex-row items-center"><FaSearch className="mr-2 text-white"/>Optimisation SEO</li>
+                            </ul>
+                        </div>
+                        <div className="flex flex-col sm:flex-row justify-between w-full sm:w-4/5 mt-5 gap-4">
+                            {work.website && (
+                                <Link href={work.website} passHref>
+                                    <button className="bg-purple text-white font-bold py-2 px-4 rounded-md w-full sm:w-auto transition-transform transform hover:scale-105 hover:bg-white hover:text-purple border border-purple">
+                                        Le Site Web
+                                    </button>
+                                </Link>
+                            )}
+                            {work.github && (
+                                <Link href={work.github} passHref>
+                                    <button className="bg-white text-purple font-bold py-2 px-4 rounded-md w-full sm:w-auto transition-transform transform hover:scale-105 hover:bg-purple hover:text-white border border-purple">
+                                        Le Code source GitHub
+                                    </button>
+                                </Link>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </main>
         </>
     );
 };

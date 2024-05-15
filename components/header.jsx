@@ -5,100 +5,55 @@ import { toggleTheme } from '@/components/themeToggle.jsx';
 import { CldImage } from 'next-cloudinary';
 import imageData from '@/public/data/images.json';
 
-// image.publicId
-
-
-
-
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const logo = imageData.images.find(image => image.name === "logo");
+
   return (
-    <header className="h-full flex md:flex-row justify-between items-center py-5 px-10 gap-2">
+    <header className="h-full flex md:flex-row justify-between items-center py-5 px-10 gap-2 animate-fadeIn">
       {/* Mon Logo */}
       <div className="flex items-center">
-        {/* <Image
-          src="/images/IA.png"
-          alt="mon-logo"
-          width={90}
-          height={90}
-        /> */}
         <CldImage
             width="90"
             height="90"
             src={logo.publicId}
             sizes="100vw"
             alt="mon-logo"
+            className="transition-transform transform hover:scale-110 duration-300"
         />
       </div>
       
       {/* Navigation régulière pour les écrans de taille moyenne et plus grands */}
-      <nav className="hidden md:block grid-rows-5">
+      <nav className="hidden md:block grid-rows-5 animate-slideIn">
         <ul className="flex flex-col justify-center items-center md:flex-row md:gap-4 md:items-center md:justify-center md:bg-purple px-4 rounded-full p-2">
-          <li className="flex items-center">
-            <Link href="#accueil">
-              <div>Accueil</div>
-            </Link>
-          </li>
-          <li className="flex items-center">
-            <Link href="#parcours">
-              <div>Parcours</div>
-            </Link>
-          </li>
-          <li className="flex items-center">
-            <Link href="#competences">
-              <div>Compétences</div>
-            </Link>
-          </li>
-          <li className="flex items-center">
-            <Link href="#projets">
-              <div>Projets</div>
-            </Link>
-          </li>
-          <li className="flex items-center">
-            <Link href="#contact">
-              <div>Contact</div>
-            </Link>
-          </li>
+          {['#accueil', '#parcours', '#competences', '#projets', '#contact'].map((href, index) => (
+            <li key={index} className="flex items-center transition-transform transform hover:scale-110 duration-300">
+              <Link href={href}>
+                <div>{href.replace('#', '').charAt(0).toUpperCase() + href.slice(2)}</div>
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
 
       {/* Menu burger */}
-      <nav className={`md:hidden ${menuOpen ? 'block' : 'hidden'}`}>
+      <nav className={`md:hidden ${menuOpen ? 'block' : 'hidden'} animate-slideIn`}>
         <ul className="flex flex-col justify-center items-center gap-4 bg-indigo px-4 h-full p-2 rounded">
-          <li className="flex items-center">
-            <Link href="#accueil">
-              <div>Accueil</div>
-            </Link>
-          </li>
-          <li className="flex items-center">
-            <Link href="#portfolio">
-              <div>Projets</div>
-            </Link>
-          </li>
-          <li className="flex items-center">
-            <Link href="#">
-              <div>Parcours</div>
-            </Link>
-          </li>
-          <li className="flex items-center">
-            <Link href="#competences">
-              <div>Compétences</div>
-            </Link>
-          </li>
-          <li className="flex items-center">
-            <Link href="#contact">
-              <div>Contact</div>
-            </Link>
-          </li>
+          {['#accueil', '#portfolio', '#parcours', '#competences', '#contact'].map((href, index) => (
+            <li key={index} className="flex items-center transition-transform transform hover:scale-110 duration-300">
+              <Link href={href}>
+                <div>{href.replace('#', '').charAt(0).toUpperCase() + href.slice(2)}</div>
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
 
       {/* Bouton pour le menu burger */}
-      <div className="md:hidden">
+      <div className="md:hidden animate-slideIn">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="focus:outline-none"
+          className="focus:outline-none transition-transform transform hover:scale-110 duration-300"
         >
           {menuOpen ? (
             <svg
@@ -139,7 +94,7 @@ export default function Header() {
         id="theme-toggle"
         data-tooltip-target="tooltip-toggle"
         type="button"
-        className="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+        className="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 transition-transform transform hover:scale-110 duration-300"
         onClick={toggleTheme} 
       >
         <svg

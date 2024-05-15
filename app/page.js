@@ -7,15 +7,16 @@ export default function Home() {
     const [works, setWorks] = useState([]);
 
     useEffect(() => {
+        //list des projets
       async function loadProjects() {
           try {
               const response = await fetch('/api/projects');
               if (!response.ok) {
                   throw new Error('Network response was not ok ' + response.statusText);
               }
-              const text = await response.text(); // Utiliser text() pour voir ce qui est réellement renvoyé
+              const text = await response.text(); 
               try {
-                  const projects = JSON.parse(text); // Essayer de parser le texte en JSON
+                  const projects = JSON.parse(text); 
                   setWorks(projects);
               } catch (error) {
                   console.error("Failed to parse JSON:", text, error);
@@ -33,6 +34,7 @@ export default function Home() {
             <Header />
             <main>
                 <About />
+                {/* on passe des params au components */}
                 <Portfolio works={works} />
             </main>
         </>
