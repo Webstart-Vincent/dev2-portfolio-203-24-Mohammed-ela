@@ -1,9 +1,11 @@
+// C:\Users\Mohammed\Desktop\portfolio-nextjs\app\works\[slug]\page.js
 import dbConnect from '@/lib/mangoose.js'; 
 import Project from '@/models/Project.js';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/header.jsx';
-import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaCloudUploadAlt, FaSearch } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaCloudUploadAlt, FaSearch,FaNodeJs, FaDatabase, FaPython, FaAngular, FaPhp, FaSass, FaWordpress, FaDocker } from 'react-icons/fa';
+
 
 await dbConnect();
 
@@ -26,6 +28,14 @@ const iconMapping = {
     'Typescript': <FaJs className="mr-2 text-yellow" />,
     'Déploiement sous Netlify': <FaCloudUploadAlt className="mr-2 text-green" />,
     'Optimisation SEO': <FaSearch className="mr-2 text-white" />,
+    'Node.js': <FaNodeJs className="mr-2 text-green" />,
+    'Base de données (SQL/NoSQL)': <FaDatabase className="mr-2 text-red" />,
+    'Python': <FaPython className="mr-2 text-blue" />,
+    'Angular': <FaAngular className="mr-2 text-red" />,
+    'PHP': <FaPhp className="mr-2 text-purple" />,
+    'Sass': <FaSass className="mr-2 text-pink" />,
+    'WordPress': <FaWordpress className="mr-2 text-blue" />,
+    'Docker': <FaDocker className="mr-2 text-blue" />
 };
 
 

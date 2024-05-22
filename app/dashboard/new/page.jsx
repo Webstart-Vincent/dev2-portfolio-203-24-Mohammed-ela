@@ -5,17 +5,24 @@ import Spinner from '@/components/spinner.js';
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaCloudUploadAlt, FaSearch } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaCloudUploadAlt, FaSearch,FaNodeJs, FaDatabase, FaPython, FaAngular, FaPhp, FaSass, FaWordpress, FaDocker } from 'react-icons/fa';
 
 const technologies = [
-  { id: 1, name: 'HTML5', icon: <FaHtml5 className="mr-2 text-orange" /> },
-  { id: 2, name: 'Design UX UI sous Figma', icon: <FaCss3Alt className="mr-2 text-blue" /> },
-  { id: 3, name: 'React / NextJS (SSR)', icon: <FaReact className="mr-2 text-blue" /> },
-  { id: 4, name: 'Typescript', icon: <FaJs className="mr-2 text-yellow" /> },
-  { id: 5, name: 'Déploiement sous Netlify', icon: <FaCloudUploadAlt className="mr-2 text-green" /> },
-  { id: 6, name: 'Optimisation SEO', icon: <FaSearch className="mr-2 text-white" /> },
-];
-
+    { id: 1, name: 'HTML5', icon: <FaHtml5 className="mr-2 text-orange" /> },
+    { id: 2, name: 'Design UX UI sous Figma', icon: <FaCss3Alt className="mr-2 text-blue" /> },
+    { id: 3, name: 'React / NextJS (SSR)', icon: <FaReact className="mr-2 text-blue" /> },
+    { id: 4, name: 'Typescript', icon: <FaJs className="mr-2 text-yellow" /> },
+    { id: 5, name: 'Déploiement sous Netlify', icon: <FaCloudUploadAlt className="mr-2 text-green" /> },
+    { id: 6, name: 'Optimisation SEO', icon: <FaSearch className="mr-2 text-white" /> },
+    { id: 7, name: 'Node.js', icon: <FaNodeJs className="mr-2 text-green" /> },
+    { id: 8, name: 'Base de données (SQL/NoSQL)', icon: <FaDatabase className="mr-2 text-red" /> },
+    { id: 9, name: 'Python', icon: <FaPython className="mr-2 text-blue" /> },
+    { id: 10, name: 'Angular', icon: <FaAngular className="mr-2 text-red" /> },
+    { id: 11, name: 'PHP', icon: <FaPhp className="mr-2 text-purple" /> },
+    { id: 12, name: 'Sass', icon: <FaSass className="mr-2 text-pink" /> },
+    { id: 13, name: 'WordPress', icon: <FaWordpress className="mr-2 text-blue" /> },
+    { id: 14, name: 'Docker', icon: <FaDocker className="mr-2 text-blue" /> }
+  ];
 const ProjectObject = () => {
     const { data: session, status } = useSession();
     const [newProject, setNewProject] = useState({ 
@@ -61,6 +68,7 @@ const ProjectObject = () => {
             console.error("Erreur lors de l'ajout du projet", error);
         }
     };
+    
 
     const handleTechnologyToggle = (techName) => {
         setNewProject((prevProject) => {
@@ -71,6 +79,7 @@ const ProjectObject = () => {
             return { ...prevProject, technologies: newTechnologies };
         });
     };
+    
 
     if (status === 'loading') {
         return <Spinner />;

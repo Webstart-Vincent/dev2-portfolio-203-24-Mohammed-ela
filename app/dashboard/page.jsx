@@ -8,14 +8,6 @@ import { CldImage } from 'next-cloudinary';
 const Dashboard = () => {
     const { data: session, status } = useSession();
     const [projects, setProjects] = useState([]);
-    const [newProject, setNewProject] = useState({ 
-        titre: '', 
-        slug: '', 
-        description: '',
-        image: '',
-        github: '',
-        website: '',
-    });
 
     // On charge les projets
     useEffect(() => {
@@ -88,24 +80,25 @@ const Dashboard = () => {
                 <div className='mt-5'>Nombre de projets : {projects.length}</div>
             </div>
             {/* Liste des projets */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-10">
                 {projects.map((project) => (
                     <div key={project._id} className="bg-purple-700 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl">
                         <div className="relative w-full h-56">
                             <CldImage
-                                width="300"
-                                height="300"
+                                width="600"
+                                height="400"
                                 src={project.image}
-                                sizes="100vw"
+                                sizes="(max-width: 600px) 100vw, (max-width: 768px) 50vw, 33vw"
                                 alt={project.titre}
+                                className="object-cover w-full h-full"
                             />
                         </div>
                         <div className="p-4">
                             <h3 className="text-xl text-white font-bold mb-2">{project.titre}</h3>
                             <p className="text-gray-300 mb-4">{project.description}</p>
-                            <a href={project.website} target="_blank" rel="noopener noreferrer">Lien du site : {project.website}</a>
+                            <a href={project.website} target="_blank" rel="noopener noreferrer" className="text-blue-400">Lien du site : {project.website}</a>
                             <br />
-                            <a href={project.github} target="_blank" rel="noopener noreferrer">Dépôt GitHub : {project.github}</a>
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-blue-400">Dépôt GitHub : {project.github}</a>
                             <p className="text-sm text-white font-bold mb-2">Titre SEO : {project.titre_seo} </p>
                             <p className="text-sm text-white font-bold mb-2">Description SEO : {project.description_seo} </p>
                             <p className="text-sm text-white font-bold mb-2">Public key img : {project.image} </p>

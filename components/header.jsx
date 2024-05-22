@@ -10,22 +10,22 @@ export default function Header() {
   const logo = imageData.images.find(image => image.name === "logo");
 
   return (
-    <header className="h-full flex md:flex-row justify-between items-center py-5 px-10 gap-2 animate-fadeIn">
+    <header className="flex flex-wrap justify-between items-center py-5 px-10 animate-fadeIn">
       {/* Mon Logo */}
       <div className="flex items-center">
         <CldImage
-            width="90"
-            height="90"
-            src={logo.publicId}
-            sizes="100vw"
-            alt="mon-logo"
-            className="transition-transform transform hover:scale-110 duration-300"
+          width="90"
+          height="90"
+          src={logo.publicId}
+          sizes="100vw"
+          alt="mon-logo"
+          className="transition-transform transform hover:scale-110 duration-300"
         />
       </div>
-      
+
       {/* Navigation régulière pour les écrans de taille moyenne et plus grands */}
-      <nav className="hidden md:block grid-rows-5 animate-slideIn">
-        <ul className="flex flex-col justify-center items-center md:flex-row md:gap-4 md:items-center md:justify-center md:bg-purple px-4 rounded-full p-2">
+      <nav className="hidden md:block">
+        <ul className="flex flex-col md:flex-row md:gap-4 md:items-center bg-purple px-4 rounded-full p-2">
           {['#accueil', '#parcours', '#competences', '#projets', '#contact'].map((href, index) => (
             <li key={index} className="flex items-center transition-transform transform hover:scale-110 duration-300">
               <Link href={href}>
@@ -36,21 +36,8 @@ export default function Header() {
         </ul>
       </nav>
 
-      {/* Menu burger */}
-      <nav className={`md:hidden ${menuOpen ? 'block' : 'hidden'} animate-slideIn`}>
-        <ul className="flex flex-col justify-center items-center gap-4 bg-indigo px-4 h-full p-2 rounded">
-          {['#accueil', '#portfolio', '#parcours', '#competences', '#contact'].map((href, index) => (
-            <li key={index} className="flex items-center transition-transform transform hover:scale-110 duration-300">
-              <Link href={href}>
-                <div>{href.replace('#', '').charAt(0).toUpperCase() + href.slice(2)}</div>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      {/* Bouton pour le menu burger */}
-      <div className="md:hidden animate-slideIn">
+      {/* Menu burger pour les petits écrans */}
+      <div className="md:hidden flex items-center">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="focus:outline-none transition-transform transform hover:scale-110 duration-300"
@@ -88,6 +75,21 @@ export default function Header() {
           )}
         </button>
       </div>
+
+      {/* Menu burger */}
+      {menuOpen && (
+        <nav className="absolute top-16 left-0 w-full bg-indigo animate-slideIn">
+          <ul className="flex flex-col items-center gap-4 p-4">
+            {['#accueil', '#portfolio', '#parcours', '#competences', '#contact'].map((href, index) => (
+              <li key={index} className="transition-transform transform hover:scale-110 duration-300">
+                <Link href={href}>
+                  <div>{href.replace('#', '').charAt(0).toUpperCase() + href.slice(2)}</div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
 
       {/* Bouton de basculement de thème */}
       <button
