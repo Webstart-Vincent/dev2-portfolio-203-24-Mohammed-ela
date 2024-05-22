@@ -1,4 +1,3 @@
-//C:\Users\Mohammed\Desktop\portfolio-nextjs\app\models\Project.js
 import mongoose from 'mongoose';
 
 const workSchema = new mongoose.Schema({

@@ -1,5 +1,5 @@
-import dbConnect from '@/app/lib/mangoose.js'; 
-import Project from '@/app/models/Project.js';
+import dbConnect from '@/lib/mangoose.js'; 
+import Project from '@/models/Project.js';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/header.jsx';

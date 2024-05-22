@@ -1,6 +1,5 @@
-// C:\Users\Mohammed\Desktop\portfolio-nextjs\pages\api\projects.js
-import dbConnect from '@/app/lib/mangoose.js'; 
-import Project from '@/app/models/Project.js';
+import dbConnect from '@/lib/mangoose.js'; 
+import Project from '@/models/Project.js';
 
 export default async function handler(req, res) {
     await dbConnect();

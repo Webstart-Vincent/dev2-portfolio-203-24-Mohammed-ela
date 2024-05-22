@@ -97,7 +97,7 @@ const Dashboard = () => {
                                 height="300"
                                 src={project.image}
                                 sizes="100vw"
-                                alt=""
+                                alt={project.titre}
                             />
                         </div>
                         <div className="p-4">
