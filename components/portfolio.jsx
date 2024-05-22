@@ -1,3 +1,4 @@
+//C:\Users\Mohammed\Desktop\portfolio-nextjs\components\portfolio.jsx
 import React from 'react';
 import Spinner from '@/components/spinner.js';
 import Link from 'next/link';

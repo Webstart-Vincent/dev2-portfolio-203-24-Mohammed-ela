@@ -28,12 +28,12 @@ module.exports = {
       'pink-gradient': 'linear-gradient(to right, #ff49db, #ff3d7e)',
       'orange-gradient': 'linear-gradient(to right, #ff7849, #ff5216)',
       'green-gradient': 'linear-gradient(to right, #13ce66, #0f8035)',
-      'white': '#ffffff', // Blanc
-      'black': '#000000', // Noir
-      'purple': '#361F59', // Violet
-      'purple2': '#483D8B', // Violet lite 
-      'yellow': '#f6e05e', // Jaune
-      'cyan': '#06b6d4', // Cyan
+      'white': '#ffffff', 
+      'black': '#000000', 
+      'purple': '#361F59', 
+      'purple2': '#483D8B',  
+      'yellow': '#f6e05e', 
+      'cyan': '#06b6d4', 
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],

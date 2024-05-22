@@ -1,3 +1,4 @@
+//C:\Users\Mohammed\Desktop\portfolio-nextjs\app\lib\mangoose.js
 import mongoose from 'mongoose';
 
 const MONGODB_URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}.mongodb.net/portfolio?retryWrites=true&w=majority&appName=Cluster0`;

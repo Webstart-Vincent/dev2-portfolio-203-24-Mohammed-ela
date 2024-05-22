@@ -19,6 +19,16 @@ export async function generateStaticParams() {
     }));
 }
 
+const iconMapping = {
+    'HTML5': <FaHtml5 className="mr-2 text-orange" />,
+    'Design UX UI sous Figma': <FaCss3Alt className="mr-2 text-blue" />,
+    'React / NextJS (SSR)': <FaReact className="mr-2 text-blue" />,
+    'Typescript': <FaJs className="mr-2 text-yellow" />,
+    'Déploiement sous Netlify': <FaCloudUploadAlt className="mr-2 text-green" />,
+    'Optimisation SEO': <FaSearch className="mr-2 text-white" />,
+};
+
+
 const Page = async ({ params }) => {
     const { slug } = params;
     const work = await fetchWork(slug);
@@ -46,12 +56,11 @@ const Page = async ({ params }) => {
                         <div className="mt-5">
                             <h2 className='mb-2 text-xl font-semibold'>Technologies :</h2>
                             <ul className="grid grid-cols-2 gap-4">
-                                <li className="text-sm md:text-base flex flex-row items-center"><FaHtml5 className="mr-2 text-orange"/>HTML5</li>
-                                <li className="text-sm md:text-base flex flex-row items-center"><FaCss3Alt className="mr-2 text-blue"/>Design UX UI sous Figma</li>
-                                <li className="text-sm md:text-base flex flex-row items-center"><FaReact className="mr-2 text-blue"/>React / NextJS (SSR)</li>
-                                <li className="text-sm md:text-base flex flex-row items-center"><FaJs className="mr-2 text-yellow"/>Typescript</li>
-                                <li className="text-sm md:text-base flex flex-row items-center"><FaCloudUploadAlt className="mr-2 text-green"/>Déploiement sous Netlify</li>
-                                <li className="text-sm md:text-base flex flex-row items-center"><FaSearch className="mr-2 text-white"/>Optimisation SEO</li>
+                                {work.technologies && work.technologies.map((tech, index) => (
+                                    <li key={index} className="text-sm md:text-base flex flex-row items-center">
+                                        {iconMapping[tech] || null}{tech}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div className="flex flex-col sm:flex-row justify-between w-full sm:w-4/5 mt-5 gap-4">

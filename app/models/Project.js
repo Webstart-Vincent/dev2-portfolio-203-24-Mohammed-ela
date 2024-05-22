@@ -1,4 +1,4 @@
-//Project.js
+//C:\Users\Mohammed\Desktop\portfolio-nextjs\app\models\Project.js
 import mongoose from 'mongoose';
 
 const workSchema = new mongoose.Schema({
@@ -10,16 +10,14 @@ const workSchema = new mongoose.Schema({
   description: String,
   titre_seo: String,
   description_seo: String,
+  technologies: { type: [String], default: [] }
+}, { collection: 'works' });
 
-}, { collection: 'works' }); 
-
-// const work = mongoose.models.works || mongoose.model('works', workSchema);
 let work;
 try {
   work = mongoose.models.works || mongoose.model('works', workSchema);
 } catch (error) {
   console.error("Error defining the work model:", error.message);
 }
-
 
 export default work;
