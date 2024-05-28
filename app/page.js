@@ -1,14 +1,15 @@
-"use client";
+"use client"
+// pages/index.jsx
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/header.jsx';
 import About from '@/components/about.jsx';
 import Portfolio from '@/components/portfolio.jsx';
+import ContactForm from '@/components/ContactForm.jsx';
 
 export default function Home() {
     const [works, setWorks] = useState([]);
 
     useEffect(() => {
-        //list des projets
         async function loadProjects() {
             try {
                 const response = await fetch('/api/projects');
@@ -35,7 +36,9 @@ export default function Home() {
             <main className="animate-fadeIn">
                 <About className="animate-slideIn" />
                 <Portfolio works={works} className="animate-slideIn" />
+                <ContactForm className="animate-slideIn" />
             </main>
         </>
     );
 }
+
