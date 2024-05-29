@@ -74,7 +74,7 @@ const Page = async ({ params }) => {
                             src={imageUrl}
                             width={599}
                             height={431}
-                            loading="lazy"
+                            priority
                             className="w-full h-auto border border-indigo rounded-lg transition-transform transform group-hover:scale-105 group-hover:shadow-xl duration-300"
                         />
                     </div>

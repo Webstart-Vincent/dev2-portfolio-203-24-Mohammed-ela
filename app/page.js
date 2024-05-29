@@ -1,9 +1,11 @@
+// pages/index.js
 'use client';
 import React, { useEffect, useState, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Header from '@/components/header.jsx';
 import About from '@/components/about.jsx';
 
+// Chargement dynamique des composants non critiques
 const Portfolio = dynamic(() => import('@/components/portfolio.jsx'), { suspense: true });
 const ContactForm = dynamic(() => import('@/components/ContactForm.jsx'), { suspense: true });
 
