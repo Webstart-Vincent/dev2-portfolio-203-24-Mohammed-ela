@@ -76,23 +76,24 @@ const Page = async ({ params }) => {
                         <div className="flex flex-col sm:flex-row justify-between w-full sm:w-4/5 mt-5 gap-4">
                             {work.website && (
                                 <Link href={work.website} passHref>
-                                    <button 
-                                    className="bg-purple text-white font-bold py-2 px-4 rounded-md w-full sm:w-auto transition-transform transform hover:scale-105 hover:bg-white hover:text-purple border border-purple">
-                                    aria-label="le lien vers le site web"
-                                    id="purple-button"
-                                    data-tooltip-target="button ref"
-
+                                    <button
+                                        className="bg-purple text-white font-bold py-2 px-4 rounded-md w-full sm:w-auto transition-transform transform hover:scale-105 hover:bg-white hover:text-purple border border-purple"
+                                        aria-label="le lien vers le site web"
+                                        id="purple-button"
+                                        data-tooltip-target="button ref"
+                                    >
                                         Le Site Web
                                     </button>
                                 </Link>
                             )}
                             {work.github && (
                                 <Link href={work.github} passHref>
-                                    <button 
-                                    className="bg-white text-purple font-bold py-2 px-4 rounded-md w-full sm:w-auto transition-transform transform hover:scale-105 hover:bg-purple hover:text-white border border-purple">
-                                    aria-label="le lien vers le code github"
-                                    id="purple-button"
-                                    data-tooltip-target="button ref"
+                                    <button
+                                        className="bg-white text-purple font-bold py-2 px-4 rounded-md w-full sm:w-auto transition-transform transform hover:scale-105 hover:bg-purple hover:text-white border border-purple"
+                                        aria-label="le lien vers le code github"
+                                        id="purple-button"
+                                        data-tooltip-target="button ref"
+                                    >
                                         Le Code source GitHub
                                     </button>
                                 </Link>
