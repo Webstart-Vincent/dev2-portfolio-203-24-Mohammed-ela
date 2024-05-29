@@ -26,8 +26,7 @@ const About = () => {
   return (
     <section name="accueil" className="h-full pt-12 pb-20 sm:pb-10 sm:px-10">
       <div className="flex flex-col items-center justify-center px-10">
-
-          <h1 className="text-4xl font-bold text-white text-center sm:text-5xl">
+          <h1 className="text-4xl font-bold text-white text-center sm:text-5xl min-h-[60px]">
             {/* <AnimatePresence>
               <motion.span
                 key={titles[currentTitleIndex]}
@@ -46,29 +45,19 @@ const About = () => {
             {titles[currentTitleIndex]}
           </h1>
           <div className="flex justify-between gap-4">
-                      <p className='text-gray light:text-black hidden sm:text-justify sm:hidden  lg:py-20 lg:leading-relaxed lg:flex lg:flex-col lg:justify-center'>
+            <p className='text-gray light:text-black hidden sm:text-justify sm:hidden lg:py-20 lg:leading-relaxed lg:flex lg:flex-col lg:justify-center'>
               Découvrez une sélection de mes derniers projets, conçus avec passion et expertise pour des clients variés ou pour des projets personnels. Explorez mon portfolio et plongez dans l'univers de mes créations, où chaque projet raconte une histoire unique et témoigne de mon engagement envers l'excellence et l'innovation dans le domaine du développement web.
-              Découvrez une sélection de mes derniers projets, con  çus avec passion et expertise pour des clients variés ou pour des projets personnels. Explorez mon portfolio et plongez dans l'univers de mes créations, où chaque projet raconte une histoire unique et témoigne de mon engagement envers l'excellence et l'innovation dans le domaine du développement web.
             </p>
             
-            {/* <Image
-            src="/images/ma_photo_IA.webp"
-            alt="mon-logo"
-            width={300}
-            height={10}
-            className="rounded-full py-10"
-            /> */}
-
             <CldImage
-            width="300"
-            height="10"
-            src={profil.publicId}
-            sizes="100vw"
-            className="rounded-full py-10"
-            alt="ma_photo_de_profil"
-        />
+              width="300"
+              height="300" // Assurez-vous que la hauteur est correcte
+              src={profil.publicId}
+              sizes="100vw"
+              className="rounded-full py-10"
+              alt="ma_photo_de_profil"
+            />
           </div>
-
       </div>
     </section>
   );
