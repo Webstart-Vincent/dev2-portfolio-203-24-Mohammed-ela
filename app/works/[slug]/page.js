@@ -1,20 +1,19 @@
-// C:\Users\Mohammed\Desktop\portfolio-nextjs\app\works\[slug]\page.js
-import dbConnect from '@/lib/mangoose.js'; 
+import dbConnect from '@/lib/mangoose.js';
 import Project from '@/models/Project.js';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/header.jsx';
-import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaCloudUploadAlt, FaSearch,FaNodeJs, FaDatabase, FaPython, FaAngular, FaPhp, FaSass, FaWordpress, FaDocker } from 'react-icons/fa';
-
-
-await dbConnect();
+import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaCloudUploadAlt, FaSearch, FaNodeJs, FaDatabase, FaPython, FaAngular, FaPhp, FaSass, FaWordpress, FaDocker } from 'react-icons/fa';
+import { notFound } from 'next/navigation';
 
 async function fetchWork(slug) {
-    return await Project.findOne({ slug });
+    await dbConnect();
+    return await Project.findOne({ slug }).lean();
 }
 
 // Fonction pour générer des chemins statiques
 export async function generateStaticParams() {
+    await dbConnect();
     const works = await Project.find({});
     return works.map((work) => ({
         slug: work.slug,
@@ -38,10 +37,28 @@ const iconMapping = {
     'Docker': <FaDocker className="mr-2 text-blue" />
 };
 
+export async function generateMetadata({ params }) {
+    const { slug } = params;
+    const work = await fetchWork(slug);
+
+    if (!work) {
+        return notFound();
+    }
+
+    return {
+        title: work.titre_seo,
+        description: work.description_seo,
+    };
+}
 
 const Page = async ({ params }) => {
     const { slug } = params;
     const work = await fetchWork(slug);
+
+    if (!work) {
+        return notFound();
+    }
+
     const imageUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${work.image}`;
 
     return (
@@ -52,11 +69,12 @@ const Page = async ({ params }) => {
                 <div className="grid my-5 md:grid-cols-1 lg:grid-cols-2 gap-10 animate-slideIn">
                     <Link href="/#projets" className="absolute top-[20%] right-[5%] underline" aria-label="liste des projets">&#8592; Retour</Link>
                     <div className="relative group">
-                        <Image 
+                        <Image
                             alt={work.titre_seo}
                             src={imageUrl}
-                            width={599} 
-                            height={431} 
+                            width={599}
+                            height={431}
+                            loading="lazy"
                             className="w-full h-auto border border-indigo rounded-lg transition-transform transform group-hover:scale-105 group-hover:shadow-xl duration-300"
                         />
                     </div>
