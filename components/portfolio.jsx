@@ -27,6 +27,7 @@ export default function Portfolio({ works }) {
                                         objectFit="cover"
                                         className="rounded-lg border-double"
                                         size="100vw"
+                                        priority
                                     />
                                     </div>
                                 </Link>

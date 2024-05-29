@@ -27,18 +27,19 @@ const About = () => {
           <h1 className="text-4xl font-bold text-white text-center sm:text-5xl min-h-[60px]">
             {titles[currentTitleIndex]}
           </h1>
-          <div className="flex justify-between gap-4">
-            <p className='text-gray light:text-black hidden sm:text-justify sm:hidden lg:py-20 lg:leading-relaxed lg:flex lg:flex-col lg:justify-center'>
+          <div className="grid justify-between gap-4 lg:grid-cols-[1fr_300px]">
+            <p className='text-gray light:text-black sm:text-justify hidden lg:py-20 lg:leading-relaxed '>
               Découvrez une sélection de mes derniers projets, conçus avec passion et expertise pour des clients variés ou pour des projets personnels. Explorez mon portfolio et plongez dans l'univers de mes créations, où chaque projet raconte une histoire unique et témoigne de mon engagement envers l'excellence et l'innovation dans le domaine du développement web.
             </p>
+
             <CldImage
               width="300"
               height="300"
               src={profil.publicId}
-              sizes="100vw"
+              sizes="300px"
               className="rounded-full py-10"
               alt="ma_photo_de_profil"
-              priority
+              
             />
           </div>
       </div>
