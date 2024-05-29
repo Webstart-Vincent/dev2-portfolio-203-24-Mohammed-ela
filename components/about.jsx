@@ -1,13 +1,14 @@
 'use client'
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
+// import { motion, AnimatePresence } from "framer-motion";
+// import { TypeAnimation } from "react-type-animation";
 import { CldImage } from 'next-cloudinary';
 import imageData from '@/public/data/images.json';
+
 const titles = [
   "Je suis un développeur junior Full Stack",
   "Je suis passionné par le développement Web",
-  "Vous retrouverez toute mes réalisations"
+  "Vous retrouverez toutes mes réalisations"
 ];
 const profil = imageData.images.find(image => image.name === "photo_profil");
 
@@ -27,7 +28,7 @@ const About = () => {
       <div className="flex flex-col items-center justify-center px-10">
 
           <h1 className="text-4xl font-bold text-white text-center sm:text-5xl">
-            <AnimatePresence>
+            {/* <AnimatePresence>
               <motion.span
                 key={titles[currentTitleIndex]}
                 initial={{ opacity: 0, y: 20 }}
@@ -41,7 +42,8 @@ const About = () => {
                   style={{ fontSize: 'inherit', fontWeight: 'inherit' }}
                 />
               </motion.span>
-            </AnimatePresence>
+            </AnimatePresence> */}
+            {titles[currentTitleIndex]}
           </h1>
           <div className="flex justify-between gap-4">
                       <p className='text-gray light:text-black hidden sm:text-justify sm:hidden  lg:py-20 lg:leading-relaxed lg:flex lg:flex-col lg:justify-center'>
@@ -63,7 +65,7 @@ const About = () => {
             src={profil.publicId}
             sizes="100vw"
             className="rounded-full py-10"
-            alt="ma photo de profil"
+            alt="ma_photo_de_profil"
         />
           </div>
 
