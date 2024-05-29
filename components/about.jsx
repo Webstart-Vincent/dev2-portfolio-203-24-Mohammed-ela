@@ -39,7 +39,7 @@ const About = () => {
               sizes="300px"
               className="rounded-full py-10"
               alt="ma_photo_de_profil"
-              
+              priority
             />
           </div>
       </div>
