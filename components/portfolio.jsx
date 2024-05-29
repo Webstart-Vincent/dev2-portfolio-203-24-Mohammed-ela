@@ -20,13 +20,15 @@ export default function Portfolio({ works }) {
                                 <Link href={`/works/${work.slug}`} passHref>
                                     <span name='title-projet' className="absolute top-5 left-5 bg-blackbg p-2 rounded text-gray font-bold transition-transform transform hover:scale-110 duration-300">{work.titre}</span>
                                     <div className="relative w-full h-0 pb-[56.25%]"> {/* 16:9 Aspect Ratio */}
-                                        <CldImage
-                                            src={work.image}
-                                            alt={work.titre}
-                                            layout="fill"
-                                            objectFit="cover"
-                                            className="rounded-lg border-double"
-                                        />
+                                    
+                                    <CldImage
+                                        src={work.image}
+                                        alt={work.titre.replace(/\s+/g, '')}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        className="rounded-lg border-double"
+                                    />
+
                                     </div>
                                 </Link>
                             </li>
