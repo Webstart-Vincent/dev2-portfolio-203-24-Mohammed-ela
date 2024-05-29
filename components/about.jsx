@@ -28,7 +28,7 @@ const About = () => {
             {titles[currentTitleIndex]}
           </h1>
           <div className="grid justify-between gap-4 lg:grid-cols-[1fr_300px]">
-            <p className='text-gray light:text-black sm:text-justify sm:hidden lg:py-20 lg:leading-relaxed '>
+            <p className='text-gray light:text-black sm:text-justify hidden lg:py-20 lg:leading-relaxed '>
               Découvrez une sélection de mes derniers projets, conçus avec passion et expertise pour des clients variés ou pour des projets personnels. Explorez mon portfolio et plongez dans l'univers de mes créations, où chaque projet raconte une histoire unique et témoigne de mon engagement envers l'excellence et l'innovation dans le domaine du développement web.
             </p>
 
@@ -40,7 +40,6 @@ const About = () => {
               className="rounded-full py-10"
               alt="ma_photo_de_profil"
               priority
-              loading="eager"
             />
           </div>
       </div>
