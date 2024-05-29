@@ -110,7 +110,12 @@ const Dashboard = () => {
                                     Modifier
                                 </div>
                             </Link>
-                            <button onClick={() => handleDeleteProject(project.slug)} className="bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <button 
+                            onClick={() => handleDeleteProject(project.slug)} 
+                            className="bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold py-2 px-4 rounded transition duration-300">
+                            aria-label="delete button"
+                            id="theme-red--button"
+                            data-tooltip-target="supprimer-projet
                                 Supprimer
                             </button>
                         </div>
