@@ -40,9 +40,11 @@ export default function Header() {
       {/* Menu burger pour les petits écrans */}
       <div className="md:hidden flex items-center">
         <button
+          id="burger-menu"
           onClick={() => setMenuOpen(!menuOpen)}
           className="focus:outline-none transition-transform transform hover:scale-110 duration-300"
         >
+      <title> menu burger </title>
           {menuOpen ? (
             <svg
             
