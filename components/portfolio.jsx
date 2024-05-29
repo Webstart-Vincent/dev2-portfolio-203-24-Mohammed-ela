@@ -7,7 +7,7 @@ export default function Portfolio({ works }) {
     return (
         <section id='projets' name='portfolio' className='h-full grid gap-14 px-4 sm:mb-15 sm:px-10 animate-fadeIn'>
             <div className='header grid gap-4'>
-                <h3 className='text-3xl font-bold text-center sm:text-left animate-slideIn'>Mes derniers projets</h3>
+                <h1 className='text-3xl font-bold text-center sm:text-left animate-slideIn'>Mes derniers projets</h1>
                 <p className='text-gray text-center sm:text-left animate-slideIn'>
                     Découvrez une sélection de mes derniers projets, conçus avec passion et expertise pour des clients variés ou pour des projets personnels. Explorez mon portfolio et plongez dans l'univers de mes créations, où chaque projet raconte une histoire unique et témoigne de mon engagement envers l'excellence et l'innovation dans le domaine du développement web.
                 </p>
