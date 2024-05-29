@@ -1,9 +1,11 @@
-'use client'
-import React, { useEffect, useState } from 'react';
+'use client';
+import React, { useEffect, useState, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import Header from '@/components/header.jsx';
 import About from '@/components/about.jsx';
-import Portfolio from '@/components/portfolio.jsx';
-import ContactForm from '@/components/ContactForm.jsx';
+
+const Portfolio = dynamic(() => import('@/components/portfolio.jsx'), { suspense: true });
+const ContactForm = dynamic(() => import('@/components/ContactForm.jsx'), { suspense: true });
 
 export default function Home() {
     const [works, setWorks] = useState([]);
@@ -15,9 +17,9 @@ export default function Home() {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
                 }
-                const text = await response.text(); 
+                const text = await response.text();
                 try {
-                    const projects = JSON.parse(text); 
+                    const projects = JSON.parse(text);
                     setWorks(projects);
                 } catch (error) {
                     console.error("Failed to parse JSON:", text, error);
@@ -31,11 +33,15 @@ export default function Home() {
 
     return (
         <>
-            <Header className="animate-fadeIn" />
-            <main className="animate-fadeIn">
-                <About className="animate-slideIn" />
-                <Portfolio works={works} className="animate-slideIn" />
-                <ContactForm className="animate-slideIn" />
+            <Header />
+            <main>
+                <About />
+                <Suspense fallback={<div>Loading Portfolio...</div>}>
+                    <Portfolio works={works} />
+                </Suspense>
+                <Suspense fallback={<div>Loading Contact Form...</div>}>
+                    <ContactForm />
+                </Suspense>
             </main>
         </>
     );
