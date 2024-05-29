@@ -40,6 +40,7 @@ const About = () => {
               className="rounded-full py-10"
               alt="ma_photo_de_profil"
               priority
+              loading="eager"
             />
           </div>
       </div>
