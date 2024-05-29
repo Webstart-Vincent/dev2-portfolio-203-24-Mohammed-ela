@@ -20,6 +20,7 @@ export default function Header() {
           sizes="100vw"
           alt="mon-logo"
           className="transition-transform transform hover:scale-110 duration-300"
+          priority
         />
       </div>
 

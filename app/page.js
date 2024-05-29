@@ -1,5 +1,4 @@
-"use client"
-// pages/index.jsx
+'use client'
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/header.jsx';
 import About from '@/components/about.jsx';
@@ -41,4 +40,3 @@ export default function Home() {
         </>
     );
 }
-

@@ -1,7 +1,5 @@
 'use client'
 import React, { useState, useEffect } from "react";
-// import { motion, AnimatePresence } from "framer-motion";
-// import { TypeAnimation } from "react-type-animation";
 import { CldImage } from 'next-cloudinary';
 import imageData from '@/public/data/images.json';
 
@@ -27,35 +25,20 @@ const About = () => {
     <section name="accueil" className="h-full pt-12 pb-20 sm:pb-10 sm:px-10">
       <div className="flex flex-col items-center justify-center px-10">
           <h1 className="text-4xl font-bold text-white text-center sm:text-5xl min-h-[60px]">
-            {/* <AnimatePresence>
-              <motion.span
-                key={titles[currentTitleIndex]}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-              >
-                <TypeAnimation
-                  sequence={[titles[currentTitleIndex]]}
-                  wrapper="span"
-                  speed={50}
-                  style={{ fontSize: 'inherit', fontWeight: 'inherit' }}
-                />
-              </motion.span>
-            </AnimatePresence> */}
             {titles[currentTitleIndex]}
           </h1>
           <div className="flex justify-between gap-4">
             <p className='text-gray light:text-black hidden sm:text-justify sm:hidden lg:py-20 lg:leading-relaxed lg:flex lg:flex-col lg:justify-center'>
               Découvrez une sélection de mes derniers projets, conçus avec passion et expertise pour des clients variés ou pour des projets personnels. Explorez mon portfolio et plongez dans l'univers de mes créations, où chaque projet raconte une histoire unique et témoigne de mon engagement envers l'excellence et l'innovation dans le domaine du développement web.
             </p>
-            
             <CldImage
               width="300"
-              height="300" // Assurez-vous que la hauteur est correcte
+              height="300"
               src={profil.publicId}
               sizes="100vw"
               className="rounded-full py-10"
               alt="ma_photo_de_profil"
+              priority
             />
           </div>
       </div>

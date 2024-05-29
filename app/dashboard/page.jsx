@@ -91,6 +91,7 @@ const Dashboard = () => {
                                 sizes="(max-width: 600px) 100vw, (max-width: 768px) 50vw, 33vw"
                                 alt={project.titre}
                                 className="object-cover w-full h-full"
+                                priority
                             />
                         </div>
                         <div className="p-4">
