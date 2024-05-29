@@ -1,4 +1,4 @@
-// components/ContactForm.jsx
+// C:\Users\Mohammed\Desktop\portfolio-nextjs\components\ContactForm.jsx
 import React, { useState } from 'react';
 import { FaPaperPlane } from 'react-icons/fa';
 
@@ -57,7 +57,7 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-900">
+        <div name="contact" className="flex items-center justify-center min-h-screen bg-gray-900 ">
             <div className="max-w-lg w-full bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-2xl shadow-indigo backdrop-blur-md animate-slideIn">
                 <h1 className="text-3xl font-bold text-center text-white mb-4">Contactez-moi</h1>
                 <form onSubmit={handleSubmit} className="space-y-4">
