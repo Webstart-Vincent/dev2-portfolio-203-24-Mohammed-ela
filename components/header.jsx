@@ -17,7 +17,7 @@ export default function Header() {
           width="90"
           height="90"
           src={logo.publicId}
-          sizes="100vw"
+          sizes="300px"
           alt="mon-logo"
           className="transition-transform transform hover:scale-110 duration-300"
           priority
@@ -44,7 +44,7 @@ export default function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
           className="focus:outline-none transition-transform transform hover:scale-110 duration-300"
         >
-      <title> menu burger </title>
+      <title> Portfolio Mohammed </title>
           {menuOpen ? (
             <svg
             
