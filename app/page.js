@@ -5,9 +5,15 @@ import dynamic from 'next/dynamic';
 import Header from '@/components/header.jsx';
 import About from '@/components/about.jsx';
 
-// Chargement dynamique des composants non critiques
-const Portfolio = dynamic(() => import('@/components/portfolio.jsx'), { suspense: true });
-const ContactForm = dynamic(() => import('@/components/ContactForm.jsx'), { suspense: true });
+// Chargement dynamique des composants non critiques avec un code splitting et lazy loading appropriés
+const Portfolio = dynamic(() => import('@/components/portfolio.jsx'), { 
+    suspense: true, 
+    ssr: false 
+});
+const ContactForm = dynamic(() => import('@/components/ContactForm.jsx'), { 
+    suspense: true, 
+    ssr: false 
+});
 
 export default function Home() {
     const [works, setWorks] = useState([]);
@@ -19,13 +25,8 @@ export default function Home() {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
                 }
-                const text = await response.text();
-                try {
-                    const projects = JSON.parse(text);
-                    setWorks(projects);
-                } catch (error) {
-                    console.error("Failed to parse JSON:", text, error);
-                }
+                const projects = await response.json();
+                setWorks(projects);
             } catch (error) {
                 console.error("Failed to fetch projects:", error);
             }
