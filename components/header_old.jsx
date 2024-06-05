@@ -26,7 +26,7 @@ export default function Header() {
 
       {/* Navigation régulière pour les écrans de taille moyenne et plus grands */}
       <nav className="hidden md:block">
-        <ul className="flex flex-col md:flex-row md:gap-4 md:items-center bg-purple px-4 rounded-full p-2 shadow-2xl border border-gray shadow-indigo">
+        <ul className="flex flex-col md:flex-row md:gap-4 md:items-center bg-purple px-4 rounded-full p-2">
           {['#accueil', '#parcours', '#competences', '#projets', '#contact'].map((href, index) => (
             <li key={index} className="flex items-center transition-transform transform hover:scale-110 duration-300">
               <Link href={href}>
@@ -104,7 +104,7 @@ export default function Header() {
         id="theme-toggle"
         data-tooltip-target="tooltip-toggle"
         type="button"
-        className="text-white inline-flex items-center justify-center light:text-black hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 transition-transform transform hover:scale-110 duration-300 border border-white light:border-black"
+        className="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 transition-transform transform hover:scale-110 duration-300"
         onClick={toggleTheme} 
       >
         <svg

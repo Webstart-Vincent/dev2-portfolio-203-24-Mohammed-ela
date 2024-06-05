@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Header from '@/components/header.jsx';
 import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaCloudUploadAlt, FaSearch, FaNodeJs, FaDatabase, FaPython, FaAngular, FaPhp, FaSass, FaWordpress, FaDocker } from 'react-icons/fa';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
 async function fetchWork(slug) {
     await dbConnect();
@@ -48,8 +49,15 @@ export async function generateMetadata({ params }) {
     return {
         title: work.titre_seo,
         description: work.description_seo,
+        openGraph: {
+            title: work.titre_seo,
+            description: work.description_seo,
+            image: `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${work.image}`,
+            type: 'website'
+        }
     };
 }
+
 
 const Page = async ({ params }) => {
     const { slug } = params;
