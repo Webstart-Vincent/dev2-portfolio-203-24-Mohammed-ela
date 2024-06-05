@@ -1,17 +1,15 @@
-// Importer Google Inter font correctement
-import { Inter } from 'next/font/google';
-import Head from 'next/head';
-import './globals.css';
-import Provider from '@/components/provider';
-
-const inter = Inter({ subsets: ['latin'] });
+import { Inter } from 'next/font/google'
+import Head from 'next/head'
+import './globals.css'
+import Provider from '@/components/provider'
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Mohammed-Portfolio',
   description: 'Explorez le portfolio de Mohammed El Amrani, un développeur web passionné. Découvrez mes projets diversifiés, mes compétences techniques avancées et mon approche créative en développement front-end et back-end.',
-  author: 'El Amrani Mohammed',
-  keywords: 'portfolio, développeur web, Next.js, React, web, code, création',
-  image: '/images/favicon.png',
+  author: 'Mohammed',
+  keywords: 'portfolio, développeur web, Next.js, React, Web, Node, Mailer, Project, Formation, Student, Works, Book',
+  image: '/images/portfolio-preview.jpg',
   url: 'https://www.mohammed-portfolio.com',
 }
 
@@ -32,7 +30,11 @@ export default function RootLayout({ children }) {
         <meta name="robots" content="index, follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Provider>{children}</Provider>
+      <html lang="fr-FR">
+        <body className={inter.className}>
+          <Provider>{children}</Provider>
+        </body>
+      </html>
     </>
-  );
+  )
 }
